@@ -1,0 +1,89 @@
+<!--
+    Windows XP LightDM Webkit Greeter Theme
+    by Markus Hernandez
+-->
+<!DOCTYPE html>
+<html lang="en-us">
+    <!-- Metadata -->
+    <head>
+        <title>Welcome</title>
+        <link rel="stylesheet" href="css/xp.css"/>
+    </head>
+    <!-- Body -->
+    <body>
+        <!-- Header -->
+        <div id="header"></div>
+        <div id="headerStripe"></div>
+        <!-- Login Screen Content -->
+        <div id="center">
+            <div id="centerLeft">
+                <img src="img/logo.png" id="logo"/>
+                <br/>
+                <br/>
+                To begin, click your user name
+            </div>
+            <div id="centerDivider"></div>
+            <div id="centerRight">
+                <template id="user-template">
+                    <div class="user-border-wrapper">
+                        <div class="user">
+                            <div class="profile-picture-wrapper">
+                                <img src="img/bike.jpeg" class="profile-picture">
+                            </div>
+                            <span class="user-name">
+                                Markus
+                            </span>
+                            <div class="password-box">
+                                <span class="password-msg">
+                                    Type your password
+                                </span>
+                                <form class="password-form">
+                                    <input type="password" class="password"/>
+                                    <input type="image" src="img/continue.png" class="img-button"/>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div id="footerStripe"></div>
+        <div id="footer">
+            <div id="shutdown-group">
+                <img src="img/shutdown.png" id="shutdown" class="img-button"/>
+                Turn off computer
+            </div>
+            <div id="account-message">
+                After you log on, you can add or change accounts.
+                <br/>
+                Just go to Control Panel and click User Accounts.
+            </div>
+        </div>
+    </body>
+    <!-- Welcome Screen Template, Replaces Body Content -->
+    <template id="welcome-template">
+        <!-- Header -->
+        <div id="header"></div>
+        <div id="headerStripe"></div>
+        <!-- Login Screen Content -->
+        <div id="center">
+            <div id="centerLeft"></div>
+            <div id="centerRight">
+                <span id="welcome">welcome</span>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div id="footerStripe"></div>
+        <div id="footer"></div>
+    </template>
+    <!--
+        Script To Interact With LightDM
+
+        I'd love to put it in the header with
+        defer but unfortunately the webkit
+        engine does not seem to support this
+        causing it to crash. =(
+    -->
+    <script src="js/main.js"></script>
+</html>

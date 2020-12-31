@@ -1,0 +1,376 @@
+/*
+ * Windows XP LightDM Webkit Greeter Theme
+ * by Markus Hernandez
+ */
+
+/*
+ * Include tahoma.ttf in the fonts directory
+ * to make everything more authentic.
+ */
+@font-face
+{
+    font-family: "Tahoma";
+    src: url("fonts/tahoma.ttf");
+}
+
+:root
+{
+    /* Primary Background */
+    --primary-bg: #5A7EDC;
+
+    /* Header Colors */
+    --header-bg: #2132A5;
+    --header-stripe-0: #466DCD;
+    --header-stripe-1: #C7DDFF;
+    --header-stripe-2: #B0C9F7;
+    --header-stripe-3: #5A7EDC;
+
+    /* Center Section Colors */
+    --radial-gradient-inner: #92B2EF;
+    --radial-gradient-mid: #82A3E9;
+    --radial-gradient-outer: #5A7EDC;
+    --center-divider-inner: #90ADED;
+    --center-divider-outer: #5A7EDC;
+
+    /* User Listing Colors */
+    --user-listing-0: #0E3997;
+    --user-listing-1: #5A7EDC;
+    --user-listing-border-selected: white;
+    --profile-picture-border-normal: white;
+    --profile-picture-border-inner: #eeff00;
+    --profile-picture-border-outer: #ffae00;
+
+    /* Footer Colors */
+    --footer-bg-left: #3833AC;
+    --footer-bg-right: #00309C;
+    --footer-stripe-0: #003399;
+    --footer-stripe-1: #F99736;
+    --footer-stripe-2: #C2814D;
+    --footer-stripe-3: #00309C;
+
+    /* Shadow */
+    --shadow-color: #3151B5;
+
+    /* Sizes */
+    --header-height: 12%;
+    --stripe-height: 2px;
+    --center-divider-width: 2px;
+    --user-listing-width: 80%;
+    --profile-picture-size: 55px;
+    --profile-picture-border-radius: 6px;
+    --profile-picture-border-size: 2px;
+    --password-entry-length: 200px;
+
+    /* Primary Font */
+    --primary-font-family:'Tahoma', Tahoma, sans-serif;
+    --primary-font-size: 18px;
+    --primary-font-color: white;
+
+    /* Message Font (Corner) */
+    --message-font-size: 12px;
+}
+
+body
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-bg);
+    font: var(--primary-font-size) var(--primary-font-family);
+    color: var(--primary-font-color);
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+}
+
+#header
+{
+    width: 100%;
+    height: var(--header-height);
+    background-color: var(--header-bg);
+}
+
+#headerStripe
+{
+    width: 100%;
+    height: var(--stripe-height);
+    background: linear-gradient(45deg, var(--header-stripe-0),
+        var(--header-stripe-1), var(--header-stripe-2), var(--header-stripe-3));
+}
+
+#logo
+{
+    width: 150px;
+}
+
+#center
+{
+    height: 100%;
+    background: radial-gradient(circle at 5% 0, var(--radial-gradient-inner) 0,
+        var(--radial-gradient-mid) 8%, var(--radial-gradient-outer) 15%);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* gap: 3%; */
+}
+
+/*
+ * Workaround since flex gap is not
+ * yet correctly supported by the webkit
+ * version included in the lighdm package.
+ */
+#center > *
+{
+    margin-right: 3%;
+}
+#center > *:last-child
+{
+    margin-right: 0;
+}
+
+#centerLeft
+{
+    flex: 1 1 0px;
+    text-align: end;
+}
+
+#centerDivider
+{
+    width: var(--center-divider-width);
+    height: 80%;
+    background: linear-gradient(180deg, var(--center-divider-outer),
+        var(--center-divider-inner), var(--center-divider-outer));
+}
+
+#centerRight
+{
+    flex: 1 1 0px;
+    display: flex;
+    flex-direction: column;
+    /* gap: 15px; */
+}
+
+/*
+ * Workaround since flex gap is not
+ * yet correctly supported by the webkit
+ * version included in the lighdm package.
+ */
+#centerRight > *
+{
+    margin-bottom: 15px;
+}
+#centerRight > *:last-child
+{
+    margin-bottom: 0;
+}
+
+#footerStripe
+{
+    width: 100%;
+    height: var(--stripe-height);
+    background: linear-gradient(45deg, var(--footer-stripe-0),
+        var(--footer-stripe-1), var(--footer-stripe-2), var(--footer-stripe-3));
+}
+
+#footer
+{
+    width: 100%;
+    height: var(--header-height);
+    background: linear-gradient(90deg, var(--footer-bg-left), var(--footer-bg-right));
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#footer > *
+{
+    margin: 3%;
+}
+
+#account-message
+{
+    font: var(--message-font-size) var(--primary-font-family);
+}
+
+/* User Profile */
+.user-border-wrapper
+{
+    width: var(--user-listing-width);
+    background: linear-gradient(90deg, white, var(--primary-bg) 80%);
+    border-radius: var(--profile-picture-border-radius);
+    padding: 1px;
+}
+
+.profile-picture-wrapper
+{
+    background-color: var(--profile-picture-border-normal);;
+    border-radius: var(--profile-picture-border-radius);
+    width: var(--profile-picture-size);
+    height: var(--profile-picture-size);
+    padding: var(--profile-picture-border-size);
+}
+
+.user:hover .profile-picture-wrapper, .user.active .profile-picture-wrapper
+{
+    background: radial-gradient(65% 100% at center, var(--profile-picture-border-inner) 50%,
+        var(--profile-picture-border-outer) 85%);
+}
+
+.profile-picture
+{
+    width: var(--profile-picture-size);
+}
+
+.user
+{
+    background-color: var(--primary-bg);
+    outline: 1px solid var(--primary-bg);
+    padding: 6px 0 6px 6px;
+    display: flex;
+    flex-direction: row;
+    /* gap: 15px; */
+}
+
+/*
+ * Workaround since flex gap is not
+ * yet correctly supported by the webkit
+ * version included in the lighdm package.
+ */
+.user > *
+{
+    margin-right: 15px;
+}
+.user > *:last-child
+{
+    margin-right: 0;
+}
+
+.user:hover
+{
+    cursor: pointer;
+}
+
+.user.active
+{
+    flex: 1 1 0px;
+    outline: 1px solid transparent;
+    border-right: 0;
+    border-radius: var(--profile-picture-border-radius);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    background: linear-gradient(90deg, var(--user-listing-0), var(--user-listing-1));
+}
+
+.password-box
+{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 1;
+    --vertical-margin: calc(var(--profile-picture-size) * 0.5);
+    --horizontal-margin: calc(2*var(--profile-picture-border-size) + 15px + var(--profile-picture-size) - 4px);
+    margin: var(--vertical-margin) 0 0 var(--horizontal-margin);
+    /* gap: 4px; */
+}
+
+/*
+ * Workaround since flex gap is not
+ * yet correctly supported by the webkit
+ * version included in the lighdm package.
+ */
+.password-box > *
+{
+    margin-bottom: 4px;
+}
+.password-box > *:last-child
+{
+    margin-bottom: 0;
+}
+
+.password-msg
+{
+    margin-left: 4px;
+}
+
+.password
+{
+    box-shadow: 2px 2px 0 var(--shadow-color);
+    outline: none;
+    border: none;
+    padding-left: 8px;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+    width: var(--password-entry-length);
+    height: 28px;
+}
+
+.password-form
+{
+    visibility: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    /* gap: 5px; */
+}
+
+/*
+ * Workaround since flex gap is not
+ * yet correctly supported by the webkit
+ * version included in the lighdm package.
+ */
+.password-form > *
+{
+    margin-right: 5px;
+}
+.password-form > *:last-child
+{
+    margin-right: 0;
+}
+
+.user.active .password-form
+{
+    visibility: visible;
+}
+
+.password-msg
+{
+    visibility: hidden;
+    font-size: var(--message-font-size);
+}
+
+.user.active .password-msg
+{
+    visibility: visible;
+}
+
+.img-button
+{
+    vertical-align: middle;
+}
+
+.img-button:hover
+{
+    filter: brightness(1.5);
+}
+
+.img-button:active
+{
+    filter:brightness(0.5);
+}
+
+#welcome
+{
+    font-weight: bold;
+    font-style: italic;
+    font-size: 50px;
+    text-shadow: 2px 3px 0 var(--shadow-color);
+}
