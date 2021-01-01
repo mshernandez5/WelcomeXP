@@ -156,32 +156,52 @@ function disablePasswordForms(isDisabled)
     }
 }
 
-// For Each User, Add A Listing In The HTML Document
-let userListDiv = document.getElementById("centerRight");
-for (let i = 0; i < users.length; i++)
+/*
+ * lightdm is sometimes unavailable at the time
+ * this script executes causing crashes.
+ * This alleviates the issue by waiting until
+ * the object is initialized.
+ */
+let interval = setInterval(checkInit, 10);
+
+function checkInit()
 {
-    let user = users[i];
-    // Copy HTML Template For New User Listing
-    let template = document.querySelector("#user-template");
-    let userListing = template.content.cloneNode(true);
-    // Populate Template With User-Specific Information
-    userListing.querySelector(".user-name").textContent = user.display_name;
-    let userImage = user.image;
-    if (!userImage)
+    if (lightdm)
     {
-        userImage = defaultProfilePicture;
+        clearInterval(interval);
+        init();
     }
-    userListing.querySelector(".profile-picture").setAttribute("src", userImage);
-    // Get Reference To Click Area
-    let userClickBox = userListing.querySelector(".user");
-    // Get Reference To Login Form
-    let loginForm = userListing.querySelector(".password-form");
-    // Insert User Listing To Login Page HTML
-    userListDiv.appendChild(userListing);
-    // Associate Listing With Associated User Index
-    userClickBox.setAttribute("data-user-index", i);
-    // Add User Selection Listener
-    userClickBox.addEventListener("click", setActiveUser);
-    // Add Login Form Listener
-    loginForm.addEventListener("submit", attemptLogin);
+}
+
+function init()
+{
+    // For Each User, Add A Listing In The HTML Document
+    let userListDiv = document.getElementById("centerRight");
+    for (let i = 0; i < lightdm.users.length; i++)
+    {
+        let user = lightdm.users[i];
+        // Copy HTML Template For New User Listing
+        let template = document.querySelector("#user-template");
+        let userListing = template.content.cloneNode(true);
+        // Populate Template With User-Specific Information
+        userListing.querySelector(".user-name").textContent = user.display_name;
+        let userImage = user.image;
+        if (!userImage)
+        {
+            userImage = defaultProfilePicture;
+        }
+        userListing.querySelector(".profile-picture").setAttribute("src", userImage);
+        // Get Reference To Click Area
+        let userClickBox = userListing.querySelector(".user");
+        // Get Reference To Login Form
+        let loginForm = userListing.querySelector(".password-form");
+        // Insert User Listing To Login Page HTML
+        userListDiv.appendChild(userListing);
+        // Associate Listing With Associated User Index
+        userClickBox.setAttribute("data-user-index", i);
+        // Add User Selection Listener
+        userClickBox.addEventListener("click", setActiveUser);
+        // Add Login Form Listener
+        loginForm.addEventListener("submit", attemptLogin);
+    }
 }
