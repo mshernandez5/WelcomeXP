@@ -14,15 +14,15 @@ Despite this, the theme is still in decent shape rendered by lighdm-webkit2-gree
 # Screenshots
 Login:
 
-![login](https://user-images.githubusercontent.com/62854710/103432192-108d4680-4b90-11eb-96aa-d64b0740f9ff.png)
+![login](screenshot/login.png)
 
 Selected User:
 
-![login-select](https://user-images.githubusercontent.com/62854710/103432194-12570a00-4b90-11eb-9c9e-cf748d05fd85.png)
+![selected_user](screenshot/selected_user.png)
 
 Welcome Screen:
 
-![welcome](https://user-images.githubusercontent.com/62854710/103432195-1420cd80-4b90-11eb-80b0-9ed83e365c71.png)
+![welcome](screenshot/welcome.png)
 
 # Warnings
 There are some things you **need** to understand and be aware about before attempting to install this theme:
