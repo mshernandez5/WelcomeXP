@@ -11,6 +11,19 @@ Due to limitations of the webkit engine, things aren't perfect yet.
 While the theme renders well in regular browsers, I've found (by *a lot* of trial and error) that a few standard features are not supported by the webkit engine which I have to work around.
 Despite this, the theme is still in decent shape rendered by lighdm-webkit2-greeter and is usable.
 
+# Screenshots
+Login:
+
+![login](https://user-images.githubusercontent.com/62854710/103432192-108d4680-4b90-11eb-96aa-d64b0740f9ff.png)
+
+Selected User:
+
+![login-select](https://user-images.githubusercontent.com/62854710/103432194-12570a00-4b90-11eb-9c9e-cf748d05fd85.png)
+
+Welcome Screen:
+
+![welcome](https://user-images.githubusercontent.com/62854710/103432195-1420cd80-4b90-11eb-80b0-9ed83e365c71.png)
+
 # Warnings
 There are some things you **need** to understand and be aware about before attempting to install this theme:
 * If you do not know how to install lightdm-webkit2-greeter and configure it to use this theme then I cannot recommend that you try to install the theme at this early state in case any issues arise. After all, a broken LightDM theme can easily prevent you from graphically logging in to your system. Having said this, I have not encountered any severe issues using the theme myself after working out the initial issues.
