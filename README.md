@@ -18,7 +18,7 @@ Login:
 
 Selected User:
 
-![selected_user](screenshot/selected_user.png)
+![user_selected](screenshot/user_selected.png)
 
 Welcome Screen:
 
