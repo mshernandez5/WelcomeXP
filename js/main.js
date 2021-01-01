@@ -27,8 +27,6 @@
 const welcomeScreenTimeout = 1000;
 // Default Profile Picture If None Available
 const defaultProfilePicture = "img/bike.png";
-// Constant Reference To Users
-const users = lightdm.users;
 
 // Variables
 let activeUserListing = null;
