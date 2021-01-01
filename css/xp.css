@@ -10,7 +10,7 @@
 @font-face
 {
     font-family: "Tahoma";
-    src: url("/fonts/tahoma.ttf");
+    src: url("../fonts/tahoma.ttf");
 }
 
 /*
@@ -21,7 +21,7 @@
 @font-face
 {
     font-family: "Franklin Gothic Medium";
-    src: url("/fonts/framd.ttf");
+    src: url("../fonts/framd.ttf");
 }
 
 :root
