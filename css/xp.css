@@ -10,7 +10,18 @@
 @font-face
 {
     font-family: "Tahoma";
-    src: url("fonts/tahoma.ttf");
+    src: url("/fonts/tahoma.ttf");
+}
+
+/*
+ * Include framd.ttf (Franklin Gothic Medium)
+ * in the fonts directory to display the correct
+ * welcome screen font.
+ */
+@font-face
+{
+    font-family: "Franklin Gothic Medium";
+    src: url("/fonts/framd.ttf");
 }
 
 :root
@@ -369,6 +380,7 @@ body
 
 #welcome
 {
+    font-family: "Franklin Gothic Medium", sans-serif;
     font-weight: bold;
     font-style: italic;
     font-size: 50px;

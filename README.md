@@ -31,7 +31,7 @@ There are some things you **need** to understand and be aware about before attem
 * The theme does not give any option to manually enter a username. It will read from the list of known users and display those.
 
 # Notes
-I would strongly recommend placing a copy of `tahoma.ttf` (the main font used by XP) into the `fonts` directory before installing to make the screen a little more authentic.
-If you have a Windows installation, you can easily grab it from `C:\Windows\Fonts`.
+I would strongly recommend placing a copy of `tahoma.ttf` (the main font used by XP) and `framd.ttf` (Franklin Medium Gothic, welcome screen font) into the `fonts` directory (create one) before installing to make the screens a little more authentic.
+If you have a Windows installation, you can easily grab them from `C:\Windows\Fonts`.
 
 The theme will use your user profile picture, but if you do not have one the dirt bike image will be used by default.
