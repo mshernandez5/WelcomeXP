@@ -106,7 +106,7 @@ function setActiveUser(event)
 {
     // Get Information For The Selected User Listing
     let userListing = event.currentTarget;
-    let userName = users[userListing.getAttribute("data-user-index")].name;
+    let userName = lightdm.users[userListing.getAttribute("data-user-index")].name;
     // If Selected User Already Active, Do Nothing
     if (userName === activeUserName)
     {
