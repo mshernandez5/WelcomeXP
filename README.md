@@ -23,13 +23,22 @@ Welcome Screen:
 ![welcome](screenshot/welcome.png)
 
 # Warnings
-There are some things you **need** to understand and be aware about before attempting to install this theme:
-* If you do not know how to install lightdm-webkit2-greeter and configure it to use this theme then I cannot recommend that you try to install the theme at this early state in case any issues arise. After all, a broken LightDM theme can easily prevent you from graphically logging in to your system. Having said this, I have not encountered any severe issues using the theme myself after working out the initial issues.
-* The theme ***does not*** yet support choosing a desktop environment within the login screen! This means that you will have to correctly edit the `index.theme` session setting to match your desktop environment before installing the theme.
-* The theme does not give any option to manually enter a username. It will read from the list of known users and display those.
+If you have no experience installing or configuring `lightdm-webkit2-greeter` then I recommend you have extreme caution installing this theme and avoid it if you are not comfortable with the possibility of recovering your login screen from the command line. While I do not currently have any severe issues using the theme on a daily basis myself, I will continue to make small changes that could affect stability in the future. A broken lightdm theme can prevent you from logging in graphically. In this case, you can switch to another tty and revert changes to the configurations using an editor like `nano`. While I do not plan to push breaking changes, I do not make any guarantees over this project and would not want someone to break their system who would have a hard time restoring it.
 
-# Notes
-I would strongly recommend placing a copy of `tahoma.ttf` (the main font used by XP) and `framd.ttf` (Franklin Medium Gothic, welcome screen font) into the `fonts` directory (create one) before installing to make the screens a little more authentic.
-If you have a Windows installation, you can easily grab them from `C:\Windows\Fonts`.
+# Important Notes
+*Please be aware of the following:*
+* The theme does ***not*** support choosing a desktop environment within the login screen; you will need to make sure to customize `index.theme` to the one you need.
+* If you do not have a user profile picture set, the default is the Windows XP dirt bike profile picture.
+* Multiple users should be supported, but have not been thoroughly tested on a real working setup. I will do this soon. If you have *a lot* of users then they will likely run off the screen at this time. This shouldn't be an issue for most users but is something to be aware of.
+* There is no option to manually enter a username. If you have users which are hidden from the user list used by lightdm then you will not be able to access that account from this login screen.
 
-The theme will use your user profile picture, but if you do not have one the dirt bike image will be used by default.
+# Installation
+1) Install the `lightdm-webkit2-greeter` package and set `greeter-session=lightdm-webkit2-greeter` in your lightdm configuration.
+2) Clone the `WelcomeXP` project into its own folder.
+3) Edit the `index.theme` in the project folder and ensure that the `session=` matches your desktop environment. By default, the login screen will attempt to launch `cinnamon`.
+4) *OPTIONAL, BUT RECOMMENDED* Create a `fonts` directory in the `WelcomeXP` folder and place copies of `tahoma.ttf` and `framd.ttf` into the new directory for a more authentic login screen. If you have a Windows installation, you can easily grab them from `C:\Windows\Fonts`.
+5) Copy the `WelcomeXP` folder into the `themes` directory for the webkit greeter, ex. `sudo cp -R WelcomeXP /usr/share/lightdm-webkit/themes`.
+6) Ensure that the theme folder has adequate permissions for the system to read the necessary files, ex. `sudo chmod -R 755 /usr/share/lightdm-webkit/themes/WelcomeXP`.
+7) Modify `lightdm-webkit2-greeter.conf` and set the `webkit_theme = WelcomeXP`.
+8) Run `lightdm --test-mode` to ensure that the theme was installed correctly. If the theme appears in a small window without errors, there is likely no issue. If you see a pop-up warning that the theme has errors, then there is some issue with either the theme or installation and you may want to revert your changes before rebooting or logging out. As a side note, I would not recommend letting `lightdm --test-mode` capture your keyboard/mouse input as this has always caused issues for me when testing any theme where it will freeze up (without releasing the mouse or keyboard).
+9) Enjoy the theme! If you want to install an updated version, you can remove the older version of the theme, ex. `sudo rm -rf /usr/share/lightdm-webkit/themes/WelcomeXP`, then redo steps 2-7 skipping configuration changes that were already done. Always make sure to test the theme on step 7 so you don't run into any unexpected issues.
