@@ -42,3 +42,6 @@ If you have no experience installing or configuring `lightdm-webkit2-greeter` th
 7) Modify `lightdm-webkit2-greeter.conf` and set the `webkit_theme = WelcomeXP`.
 8) Run `lightdm --test-mode` to ensure that the theme was installed correctly. If the theme appears in a small window without errors, there is likely no issue. If you see a pop-up warning that the theme has errors, then there is some issue with either the theme or installation and you may want to revert your changes before rebooting or logging out. As a side note, I would not recommend letting `lightdm --test-mode` capture your keyboard/mouse input as this has always caused issues for me when testing any theme where it will freeze up (without releasing the mouse or keyboard).
 9) Enjoy the theme! If you want to install an updated version, you can remove the older version of the theme, ex. `sudo rm -rf /usr/share/lightdm-webkit/themes/WelcomeXP`, then redo steps 2-7 skipping configuration changes that were already done. Always make sure to test the theme on step 7 so you don't run into any unexpected issues.
+
+Example of a successful run of `lightdm --test-mode`:
+![lightdm_test_mode](screenshot/lightdm_test_mode.png)
