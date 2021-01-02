@@ -7,9 +7,7 @@ I found that there seems to be no recent attempts to make a greeter to match it,
 
 With the help of the lightdm-webkit2-greeter engine, this theme makes an attempt at recreating the XP login screen.
 
-Due to limitations of the webkit engine, things aren't perfect yet.
-While the theme renders well in regular browsers, I've found (by *a lot* of trial and error) that a few standard features are not supported by the webkit engine which I have to work around.
-Despite this, the theme is still in decent shape rendered by lighdm-webkit2-greeter and is usable.
+The lightdm-webkit2-greeter engine has a few inconsistencies with regular browsers (especially for flex layout) but for the most part you can get a general idea of how the screen will look simply by cloning the project and viewing `index.html` in a standard browser. Things aren't perfect yet, but they come decently close to the real thing. Take a look at the screenshots below, captured from a virtual machine with this theme in actual use:
 
 # Screenshots
 Login:
