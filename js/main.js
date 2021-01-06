@@ -115,7 +115,10 @@ function setActiveUser(event)
     // Switching Users, Cancel Previous Authentication
     if (pendingAuthentication)
     {
+        // Make Previously Selected User Appear Unselected
         activeUserListing.classList.remove("active");
+        // Clear Previously Selected Password Box
+        activeUserListing.querySelector(".password").value = "";
         lightdm.cancel_authentication();
     }
     // Update Status To Reflect Selected User
@@ -124,6 +127,8 @@ function setActiveUser(event)
     activeUserName = userName;
     // Assign Styles To Active User Listing
     activeUserListing.classList.add("active");
+    // Focus Password Box
+    activeUserListing.querySelector(".password").focus();
     // Begin Authentication
     lightdm.authenticate(activeUserName);
 }
