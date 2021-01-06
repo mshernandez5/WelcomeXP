@@ -59,6 +59,8 @@ function show_message(text, type)
 // Called When Authentication Completed
 function authentication_complete()
 {
+    // Clear Password Field On Login Attempt
+    activeUserListing.querySelector(".password").value = "";
     pendingAuthentication = false;
     if (lightdm.is_authenticated)
     {
