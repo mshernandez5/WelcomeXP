@@ -59,6 +59,20 @@
     --footer-stripe-2: #C2814D;
     --footer-stripe-3: #00309C;
 
+    /* Shutdown Prompt Colors */
+    --button-background-1: #F7F3EF;
+    --button-background-2: #E5F0E2;
+    --button-background-3: #D6D3C6;
+    --button-border: #003C74;
+    --button-outline-1: #043292;
+    --button-outline-2: #C3C3DF;
+    --button-normal-border-1: #FFFFFF;
+    --button-normal-border-2: #D6D0C5;
+    --button-hover-border-1: #FFF0CF;
+    --button-hover-border-2: #E59700;
+    --button-select-border-1: #CEE7FF;
+    --button-select-border-2: #6982EE;
+
     /* Shadow */
     --shadow-color: #3151B5;
 
@@ -89,6 +103,11 @@
 
 body
 {
+    /* Prevent Text Selection & Text Cursor */
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: default;
+    /* Reset Defaults */
     position: absolute;
     width: 100%;
     height: 100%;
@@ -449,12 +468,12 @@ body
     align-items: center;
 }
 
-#shutdown-prompt-header *:first-child
+#shutdown-prompt-header > *:first-child
 {
     margin-left: 10px;
 }
 
-#shutdown-prompt-header *:last-child
+#shutdown-prompt-header > *:last-child
 {
     margin-right: 10px;
 }
@@ -490,7 +509,7 @@ body
     align-items: center;
     justify-content: center;
 }
-.shutdown-prompt-option *:first-child
+.shutdown-prompt-option > *:first-child
 {
     margin-bottom: 8px;
 }
@@ -511,7 +530,51 @@ body
     align-items: center;
 }
 
-#shutdown-prompt-footer *:last-child
+#shutdown-prompt-footer > *:last-child
 {
     margin-right: 10px;
+}
+
+#shutdown-cancel-button-outline
+{
+    width: min-content;
+    height: min-content;
+    padding: 1px;
+    border-radius: 4px;
+    background: linear-gradient(170deg, var(--button-outline-1) 50%,
+        var(--button-outline-2));
+}
+
+#shutdown-cancel-button-border
+{
+    width: min-content;
+    height: min-content;
+    padding: 1px;
+    border: solid 1px var(--button-border);
+    border-radius: 4px;
+    background: linear-gradient(var(--button-normal-border-1),
+        var(--button-normal-border-2));
+}
+
+#shutdown-cancel-button-border:hover
+{
+    background: linear-gradient(var(--button-hover-border-1),
+        var(--button-hover-border-2));
+}
+
+#shutdown-cancel-button-border:active
+{
+    background: linear-gradient(var(--button-select-border-1),
+        var(--button-select-border-2));
+}
+
+#shutdown-cancel-button
+{
+    color: black;
+    font-size: var(--shutdown-prompt-option-font-size);
+    outline: none;
+    border: none;
+    padding: 0px 8px 0px 8px;
+    background: linear-gradient(180deg, var(--button-background-1) 50%,
+        var(--button-background-2) 60%, var(--button-background-3) 80%);
 }
