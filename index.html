@@ -11,79 +11,102 @@
     </head>
     <!-- Body -->
     <body>
-        <!-- Header -->
-        <div id="header"></div>
-        <div id="headerStripe"></div>
-        <!-- Login Screen Content -->
-        <div id="center">
-            <div id="centerLeft">
-                <img src="img/logo.png" id="logo"/>
-                <br/>
-                <br/>
-                To begin, click your user name
-            </div>
-            <div id="centerDivider"></div>
-            <div id="centerRight">
-                <template id="user-template">
-                    <div class="user-border-wrapper">
-                        <div class="user">
-                            <div class="profile-picture-wrapper">
-                                <img src="img/bike.jpeg" class="profile-picture">
-                            </div>
-                            <span class="user-name">
-                                Markus
-                            </span>
-                            <div class="password-box">
-                                <span class="password-msg">
-                                    Type your password
+        <!-- Main Login Screen Content -->
+        <div id="main-content">
+            <!-- Header -->
+            <div id="header"></div>
+            <div id="headerStripe"></div>
+            <!-- Login Screen Content -->
+            <div id="center">
+                <div id="centerLeft">
+                    <img src="img/logo.png" id="logo"/>
+                    <br/>
+                    <br/>
+                    To begin, click your user name
+                </div>
+                <div id="centerDivider"></div>
+                <div id="centerRight">
+                    <template id="user-template">
+                        <div class="user-border-wrapper">
+                            <div class="user">
+                                <div class="profile-picture-wrapper">
+                                    <img src="img/bike.jpeg" class="profile-picture">
+                                </div>
+                                <span class="user-name">
+                                    Markus
                                 </span>
-                                <form class="password-form">
-                                    <input type="password" class="password"/>
-                                    <input type="image" src="img/continue.png" class="img-button"/>
-                                </form>
+                                <div class="password-box">
+                                    <span class="password-msg">
+                                        Type your password
+                                    </span>
+                                    <form class="password-form">
+                                        <input type="password" class="password"/>
+                                        <input type="image" src="img/continue.png" class="img-button"/>
+                                    </form>
+                                </div>
                             </div>
                         </div>
+                    </template>
+                </div>
+            </div>
+            <!-- Footer -->
+            <div id="footerStripe"></div>
+            <div id="footer">
+                <div id="shutdown-group">
+                    <img src="img/shutdown.png" id="shutdown-options" class="img-button"/>
+                    Turn off computer
+                </div>
+                <div id="account-message">
+                    After you log on, you can add or change accounts.
+                    <br/>
+                    Just go to Control Panel and click User Accounts.
+                </div>
+            </div>
+        </div>
+        <!-- Shutdown Prompt Overlay -->
+        <div id="shutdown-prompt-overlay">
+            <div id="shutdown-prompt">
+                <div id="shutdown-prompt-header">
+                    <span>Turn off computer</span>
+                    <img src="img/logo-small.png" id="logo-small"/>
+                </div>
+                <div id="shutdown-prompt-header-stripe"></div>
+                <div id="shutdown-prompt-options">
+                    <div class="shutdown-prompt-option">
+                        <img src="img/suspend.png" id="standby-button" class="img-button"/>
+                        <span>Stand By</span>
                     </div>
-                </template>
+                    <div class="shutdown-prompt-option">
+                        <img src="img/shutdown.png" id="shutdown-button" class="img-button"/>
+                        <span>Turn Off</span>
+                    </div>
+                    <div class="shutdown-prompt-option">
+                        <img src="img/restart.png" id="restart-button" class="img-button"/>
+                        <span>Restart</span>
+                    </div>
+                </div>
+                <div id="shutdown-prompt-footer">
+                    <input type="button" value="Cancel" id="shutdown-cancel-button"/>
+                </div>
             </div>
         </div>
-        <!-- Footer -->
-        <div id="footerStripe"></div>
-        <div id="footer">
-            <div id="shutdown-group">
-                <img src="img/shutdown.png" id="shutdown" class="img-button"/>
-                Turn off computer
+        <!-- Welcome Screen Template, Replaces Body Content -->
+        <template id="welcome-template">
+            <!-- Header -->
+            <div id="header"></div>
+            <div id="headerStripe"></div>
+            <!-- Login Screen Content -->
+            <div id="center">
+                <div id="centerLeft"></div>
+                <div id="centerRight">
+                    <span id="welcome">welcome</span>
+                </div>
             </div>
-            <div id="account-message">
-                After you log on, you can add or change accounts.
-                <br/>
-                Just go to Control Panel and click User Accounts.
-            </div>
-        </div>
+            <!-- Footer -->
+            <div id="footerStripe"></div>
+            <div id="footer"></div>
+        </template>
     </body>
-    <!-- Welcome Screen Template, Replaces Body Content -->
-    <template id="welcome-template">
-        <!-- Header -->
-        <div id="header"></div>
-        <div id="headerStripe"></div>
-        <!-- Login Screen Content -->
-        <div id="center">
-            <div id="centerLeft"></div>
-            <div id="centerRight">
-                <span id="welcome">welcome</span>
-            </div>
-        </div>
-        <!-- Footer -->
-        <div id="footerStripe"></div>
-        <div id="footer"></div>
-    </template>
-    <!--
-        Script To Interact With LightDM
-
-        I'd love to put it in the header with
-        defer but unfortunately the webkit
-        engine does not seem to support this
-        causing it to crash. =(
-    -->
+    <!-- Script To Interact With LightDM -->
     <script src="js/main.js"></script>
 </html>

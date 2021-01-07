@@ -67,9 +67,9 @@ function authentication_complete()
         // Display Welcome Screen
         let template = document.getElementById("welcome-template");
         let welcomeBodyContent = template.content.cloneNode(true);
-        let body = document.querySelector("body");
-        body.innerHTML = "";
-        body.appendChild(welcomeBodyContent);
+        let mainContent = document.querySelector("#main-content");
+        mainContent.innerHTML = "";
+        mainContent.appendChild(welcomeBodyContent);
         // After Welcome Screen Timeout, Start Session
         setTimeout(function() {lightdm.start_session_sync(lightdm.default_session)}, welcomeScreenTimeout);
     }
@@ -91,17 +91,8 @@ function autologin_timer_expired()
 }
 
 /*
- * Custom Greeter Logic
+ * Scripting for user selection, makes lightdm calls.
  */
-
-// Attach Shutdown Button Listener
-const shutdownButton = document.getElementById("shutdown");
-shutdownButton.addEventListener("click",
-    function()
-    {
-        lightdm.shutdown();
-    }
-);
 
 // Called When A User Listing In The Menu Is Selected
 function setActiveUser(event)
@@ -160,6 +151,60 @@ function disablePasswordForms(isDisabled)
         }
     }
 }
+
+/*
+ * Scripting for the shutdown prompt overlay,
+ * with options for standby/shutdown/restart.
+ */
+
+// Attach Shutdown Options Button Listener
+const shutdownOptionsButton = document.getElementById("shutdown-options");
+shutdownOptionsButton.addEventListener("click", showShutdownPrompt);
+
+// Show Prompt Overlay With Shutdown Options
+function showShutdownPrompt()
+{
+    document.querySelector("#main-content").style.filter = "grayscale(0.90)";
+    let overlay = document.querySelector("#shutdown-prompt-overlay");
+    overlay.classList.add("active");
+}
+
+const standbyButton = document.querySelector("#standby-button");
+standbyButton.addEventListener("click", standby);
+function standby()
+{
+    cancelShutdownPrompt();
+    lightdm.suspend();
+}
+
+// Shutdown Button Listener
+const shutdownButton = document.querySelector("#shutdown-button");
+shutdownButton.addEventListener("click", shutdown);
+function shutdown()
+{
+    lightdm.shutdown();
+}
+
+const restartButton = document.querySelector("#restart-button");
+restartButton.addEventListener("click", restart);
+function restart()
+{
+    lightdm.restart();
+}
+
+const cancelButton = document.querySelector("#shutdown-cancel-button");
+cancelButton.addEventListener("click", cancelShutdownPrompt);
+function cancelShutdownPrompt()
+{
+    document.querySelector("#main-content").style.filter = "none";
+    let overlay = document.querySelector("#shutdown-prompt-overlay");
+    overlay.classList.remove("active");
+}
+
+/*
+ * These are the initialization procedures when
+ * the script execution begins.
+ */
 
 /*
  * lightdm is sometimes unavailable at the time
