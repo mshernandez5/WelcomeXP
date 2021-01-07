@@ -22,6 +22,10 @@ Welcome Screen:
 
 ![welcome](screenshot/welcome.png)
 
+Shutdown Options:
+
+![shutdown_options](screenshot/shutdown_options.png)
+
 # Warnings
 If you have no experience installing or configuring `lightdm-webkit2-greeter` then I recommend you have extreme caution installing this theme and avoid it if you are not comfortable with the possibility of recovering your login screen from the command line. While I do not currently have any severe issues using the theme on a daily basis myself, I will continue to make small changes that could affect stability in the future. A broken lightdm theme can prevent you from logging in graphically. In this case, you can switch to another tty and revert changes to the configurations using an editor like `nano`. While I do not plan to push breaking changes, I do not make any guarantees over this project and would not want someone to break their system who would have a hard time restoring it.
 
