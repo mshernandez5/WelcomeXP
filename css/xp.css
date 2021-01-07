@@ -73,7 +73,7 @@
     --button-select-border-1: #CEE7FF;
     --button-select-border-2: #6982EE;
 
-    /* Shadow */
+    /* Shadow (Password Box + "welcome" text) */
     --shadow-color: #3151B5;
 
     /* Sizes - General */
@@ -85,6 +85,7 @@
     --profile-picture-border-radius: 6px;
     --profile-picture-border-size: 2px;
     --password-entry-length: 200px;
+    --image-button-size: 28px;
 
     /* Primary Font */
     --primary-font-family:'Tahoma', Tahoma, sans-serif;
@@ -99,6 +100,7 @@
     --shutdown-prompt-height: 225px;
     --shutdown-header-height: 20%;
     --shutdown-prompt-option-font-size: 12px;
+    --shutdown-option-button-size: 32px;
 }
 
 body
@@ -239,7 +241,7 @@ body
 
 #shutdown-options
 {
-    height: 28px;
+    height: var(--image-button-size);;
 }
 
 #account-message
@@ -388,7 +390,7 @@ body
 
 .password-form .img-button
 {
-    height: 28px;
+    height: var(--image-button-size);
 }
 
 .user.active .password-form
@@ -516,7 +518,7 @@ body
 
 .shutdown-prompt-option .img-button
 {
-    height: 28px;
+    height: var(--shutdown-option-button-size);
 }
 
 #shutdown-prompt-footer
