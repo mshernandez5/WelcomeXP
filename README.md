@@ -18,6 +18,10 @@ Selected User:
 
 ![user_selected](screenshot/user_selected.png)
 
+Incorrect Password:
+
+![incorrect_password](screenshot/incorrect_password.png)
+
 Welcome Screen:
 
 ![welcome](screenshot/welcome.png)
