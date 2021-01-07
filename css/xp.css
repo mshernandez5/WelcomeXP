@@ -523,7 +523,7 @@ body
 {
     width: 100%;
     height: var(--shutdown-header-height);
-    background: linear-gradient(90deg, var(--footer-bg-left), var(--footer-bg-right));
+    background-color: var(--header-bg);
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
