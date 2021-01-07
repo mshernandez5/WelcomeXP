@@ -75,7 +75,8 @@ function authentication_complete()
     }
     else
     {
-        show_message("Authentication failed!", "error");
+        // Show Error Popup
+        activeUserListing.querySelector(".password-error-popup").classList.add("active");
         // Enable Password Input Forms
         disablePasswordForms(false);
         // Keep User Selected For Another Attempt
@@ -124,6 +125,17 @@ function setActiveUser(event)
     activeUserListing.querySelector(".password").focus();
     // Begin Authentication
     lightdm.authenticate(activeUserName);
+}
+
+// If The User Clicks Anywhere On The Document, Clear Any Popups
+document.addEventListener("click", removePopup);
+function removePopup()
+{
+    if (activeUserListing)
+    {
+        // Remove Popup, If Any
+        activeUserListing.querySelector(".password-error-popup").classList.remove("active");
+    }
 }
 
 // Called When Password Form Is Submitted

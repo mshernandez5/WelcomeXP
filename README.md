@@ -40,7 +40,7 @@ If you have no experience installing or configuring `lightdm-webkit2-greeter` th
 1) Install the `lightdm-webkit2-greeter` package and set `greeter-session=lightdm-webkit2-greeter` in your lightdm configuration.
 2) Clone the `WelcomeXP` project into its own folder.
 3) Edit the `index.theme` in the project folder and ensure that the `session=` matches your desktop environment. By default, the login screen will attempt to launch `cinnamon`.
-4) *OPTIONAL, BUT RECOMMENDED* Create a `fonts` directory in the `WelcomeXP` folder and place copies of `tahoma.ttf` and `framd.ttf` into the new directory for a more authentic login screen. If you have a Windows installation, you can easily grab them from `C:\Windows\Fonts`.
+4) *OPTIONAL, BUT RECOMMENDED* Create a `fonts` directory in the `WelcomeXP` folder and place copies of `tahoma.ttf`, `tahomabd.ttf`, and `framd.ttf` into the new directory for a more authentic login screen. If you have a Windows installation, you can easily grab them from `C:\Windows\Fonts`.
 5) Copy the `WelcomeXP` folder into the `themes` directory for the webkit greeter, ex. `sudo cp -R WelcomeXP /usr/share/lightdm-webkit/themes`.
 6) Ensure that the theme folder has adequate permissions for the system to read the necessary files, ex. `sudo chmod -R 755 /usr/share/lightdm-webkit/themes/WelcomeXP`.
 7) Modify `lightdm-webkit2-greeter.conf` and set the `webkit_theme = WelcomeXP`.

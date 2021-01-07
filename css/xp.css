@@ -14,6 +14,16 @@
 }
 
 /*
+ * Include tahomabd.ttf in the fonts directory
+ * to display bold fonts correctly.
+ */
+ @font-face
+ {
+     font-family: "Tahoma Bold";
+     src: url("../fonts/tahomabd.ttf");
+ }
+
+/*
  * Include framd.ttf (Franklin Gothic Medium)
  * in the fonts directory to display the correct
  * welcome screen font.
@@ -50,6 +60,7 @@
     --profile-picture-border-normal: white;
     --profile-picture-border-inner: #eeff00;
     --profile-picture-border-outer: #ffae00;
+    --popup-background-color: #FFFFE1;
 
     /* Footer Colors */
     --footer-bg-left: #3833AC;
@@ -80,12 +91,39 @@
     --header-height: 12%;
     --stripe-height: 2px;
     --center-divider-width: 2px;
+    --image-button-size: 28px;
+
+    /* Sizes - User Listing */
     --user-listing-width: 80%;
+    --user-listing-horizontal-gap: 15px;
     --profile-picture-size: 55px;
     --profile-picture-border-radius: 6px;
     --profile-picture-border-size: 2px;
+
+    /* Sizes - Password Entry Group */
     --password-entry-length: 200px;
-    --image-button-size: 28px;
+    --password-entry-height: 28px;
+    --password-entry-offset: 4px;
+    --password-top-margin: calc(var(--profile-picture-size) * 0.5);
+    --password-left-margin: calc(2 * var(--profile-picture-border-size) + var(--user-listing-horizontal-gap) + var(--profile-picture-size) - var(--password-entry-offset));
+
+    /* Sizes - Popup */
+    --popup-border-radius: 8px;
+    --popup-padding: 10px;
+    --popup-border-size: 1px;
+    --popup-arrow-size: 20px;
+    --popop-arrow-position: 4px;
+    --popup-arrow-border-size: calc(var(--popup-arrow-size) + var(--popup-border-size) * 2);
+    --error-popup-gap: 6px;
+    --error-popup-top-margin: calc(var(--password-top-margin) + var(--popup-arrow-border-size) + var(--password-entry-height) + var(--error-popup-gap));
+    --error-popup-left-margin: calc(var(--password-left-margin) + var(--password-entry-length) / 2);
+
+    /* Sizes - Shutdown Prompt */
+    --shutdown-prompt-width: 350px;
+    --shutdown-prompt-height: 225px;
+    --shutdown-header-height: 20%;
+    --shutdown-prompt-option-font-size: 12px;
+    --shutdown-option-button-size: 32px;
 
     /* Primary Font */
     --primary-font-family:'Tahoma', Tahoma, sans-serif;
@@ -94,13 +132,6 @@
 
     /* Message Font (Corner) */
     --message-font-size: 12px;
-
-    /* Sizes - Shutdown Prompt */
-    --shutdown-prompt-width: 350px;
-    --shutdown-prompt-height: 225px;
-    --shutdown-header-height: 20%;
-    --shutdown-prompt-option-font-size: 12px;
-    --shutdown-option-button-size: 32px;
 }
 
 body
@@ -285,7 +316,7 @@ body
     padding: 6px 0 6px 6px;
     display: flex;
     flex-direction: row;
-    /* gap: 15px; */
+    /* gap: var(--user-listing-horizontal-gap); */
 }
 
 /*
@@ -295,7 +326,7 @@ body
  */
 .user > *
 {
-    margin-right: 15px;
+    margin-right: var(--user-listing-horizontal-gap);
 }
 .user > *:last-child
 {
@@ -324,9 +355,7 @@ body
     flex-direction: column;
     position: absolute;
     z-index: 1;
-    --vertical-margin: calc(var(--profile-picture-size) * 0.5);
-    --horizontal-margin: calc(2*var(--profile-picture-border-size) + 15px + var(--profile-picture-size) - 4px);
-    margin: var(--vertical-margin) 0 0 var(--horizontal-margin);
+    margin: var(--password-top-margin) 0 0 var(--password-left-margin);
     /* gap: 4px; */
 }
 
@@ -346,7 +375,7 @@ body
 
 .password-msg
 {
-    margin-left: 4px;
+    margin-left: var(--password-entry-offset);
 }
 
 .password
@@ -361,7 +390,7 @@ body
     line-height: 1.15;
     margin: 0;
     width: var(--password-entry-length);
-    height: 28px;
+    height: var(--password-entry-height);
 }
 
 .password-form
@@ -409,6 +438,58 @@ body
     visibility: visible;
 }
 
+.password-error-popup
+{
+    visibility: hidden;
+    z-index: 2;
+    position: absolute;
+    margin: var(--error-popup-top-margin) 0 0 var(--error-popup-left-margin);
+    border: solid var(--popup-border-size) black;
+    border-radius: var(--popup-border-radius);
+    padding: var(--popup-padding);
+    font-size: var(--message-font-size);
+    color: black;
+    background-color: var(--popup-background-color);
+}
+
+.password-error-popup.active
+{
+    visibility: visible;
+}
+
+.popup-arrow-border
+{
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 0px solid transparent;
+    border-right: var(--popup-arrow-border-size) solid transparent;
+    border-bottom: var(--popup-arrow-border-size) solid black;
+    margin: calc(0px - var(--popup-arrow-border-size) - var(--popup-padding)) 0 0 var(--popop-arrow-position);
+}
+
+.popup-arrow
+{
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 0px solid transparent;
+    border-right: var(--popup-arrow-size) solid transparent;
+    border-bottom: var(--popup-arrow-size) solid var(--popup-background-color);
+    margin: calc(var(--popup-border-size) * 2) var(--popup-border-size) 0px var(--popup-border-size);
+}
+
+.password-error-title
+{
+    font-family: "Tahoma Bold", "Tahoma", sans-serif;
+    margin-bottom: 4px;
+}
+
+.password-error-icon
+{
+    height: var(--message-font-size);
+}
+
 .img-button
 {
     vertical-align: middle;
@@ -416,7 +497,7 @@ body
 
 .img-button:hover
 {
-    filter: brightness(1.5);
+    filter: brightness(1.25);
 }
 
 .img-button:active
