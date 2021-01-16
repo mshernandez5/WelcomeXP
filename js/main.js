@@ -128,7 +128,7 @@ function setActiveUser(event)
 }
 
 // If The User Clicks Anywhere On The Document, Clear Any Popups
-document.addEventListener("click", removePopup);
+document.addEventListener("click", removePopup, true);
 function removePopup()
 {
     if (activeUserListing)
