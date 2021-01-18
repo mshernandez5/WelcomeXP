@@ -30,6 +30,10 @@ Shutdown Options:
 
 ![shutdown_options](screenshot/shutdown_options.png)
 
+Multiple Users:
+
+![multiple_users](screenshot/multiple_users.png)
+
 # Warnings
 If you have no experience installing or configuring `lightdm-webkit2-greeter` then I recommend you have extreme caution installing this theme and avoid it if you are not comfortable with the possibility of recovering your login screen from the command line. While I do not currently have any severe issues using the theme on a daily basis myself, I will continue to make small changes that could affect stability in the future. A broken lightdm theme can prevent you from logging in graphically. In this case, you can switch to another tty and revert changes to the configurations using an editor like `nano`. While I do not plan to push breaking changes, I do not make any guarantees over this project and would not want someone to break their system who would have a hard time restoring it.
 
@@ -37,7 +41,6 @@ If you have no experience installing or configuring `lightdm-webkit2-greeter` th
 *Please be aware of the following:*
 * The theme does ***not*** support choosing a desktop environment within the login screen; you will need to make sure to customize `index.theme` to the one you need.
 * If you do not have a user profile picture set, the default is the Windows XP dirt bike profile picture.
-* Multiple users should be supported, but have not been thoroughly tested on a real working setup. I will do this soon. If you have *a lot* of users then they will likely run off the screen at this time. This shouldn't be an issue for most users but is something to be aware of.
 * There is no option to manually enter a username. If you have users which are hidden from the user list used by lightdm then you will not be able to access that account from this login screen.
 
 # Installation

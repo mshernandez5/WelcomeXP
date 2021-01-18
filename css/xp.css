@@ -88,7 +88,8 @@
     --shadow-color: #3151B5;
 
     /* Sizes - General */
-    --header-height: 12%;
+    --header-height: 10%;
+    --footer-height: 10%;
     --stripe-height: 2px;
     --center-divider-width: 2px;
     --image-button-size: 28px;
@@ -159,12 +160,11 @@ body
     background-color: var(--primary-bg);
     font: var(--primary-font-size) var(--primary-font-family);
     color: var(--primary-font-color);
-    display: flex;
-    flex-direction: column;
 }
 
 #header
 {
+    flex-shrink: 0;
     width: 100%;
     height: var(--header-height);
     background-color: var(--header-bg);
@@ -172,6 +172,7 @@ body
 
 #headerStripe
 {
+    flex-shrink: 0;
     width: 100%;
     height: var(--stripe-height);
     background: linear-gradient(45deg, var(--header-stripe-0),
@@ -185,7 +186,7 @@ body
 
 #center
 {
-    height: 100%;
+    height: calc(100% - (var(--header-height) + var(--footer-height) + var(--stripe-height) * 2));
     background: radial-gradient(circle at 5% 0, var(--radial-gradient-inner) 0,
         var(--radial-gradient-mid) 8%, var(--radial-gradient-outer) 15%);
     flex-grow: 1;
@@ -226,10 +227,19 @@ body
 
 #centerRight
 {
+    height: 100%;
     flex: 1 1 0px;
     display: flex;
     flex-direction: column;
+    /* safe center Not Supported, Using flex-start + auto Margins Instead */
+    justify-content: flex-start;
     /* gap: 15px; */
+    overflow: auto;
+}
+
+#userListings
+{
+    margin: auto 0;
 }
 
 /*
@@ -237,17 +247,18 @@ body
  * yet correctly supported by the webkit
  * version included in the lighdm package.
  */
-#centerRight > *
+#userListings > *
 {
     margin-bottom: 15px;
 }
-#centerRight > *:last-child
+#userListings > *:last-child
 {
     margin-bottom: 0;
 }
 
 #footerStripe
 {
+    flex-shrink: 0;
     width: 100%;
     height: var(--stripe-height);
     background: linear-gradient(45deg, var(--footer-stripe-0),
@@ -256,8 +267,9 @@ body
 
 #footer
 {
+    flex-shrink: 0;
     width: 100%;
-    height: var(--header-height);
+    height: var(--footer-height);
     background: linear-gradient(90deg, var(--footer-bg-left), var(--footer-bg-right));
     display: flex;
     flex-direction: row;
@@ -311,6 +323,7 @@ body
 
 .user
 {
+    position: relative;
     background-color: var(--primary-bg);
     outline: 1px solid var(--primary-bg);
     padding: 6px 0 6px 6px;
@@ -512,6 +525,7 @@ body
     font-style: italic;
     font-size: 50px;
     text-shadow: 2px 3px 0 var(--shadow-color);
+    margin: auto 0;
 }
 
 #shutdown-prompt-overlay

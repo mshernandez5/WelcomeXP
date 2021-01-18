@@ -238,7 +238,7 @@ function checkInit()
 function init()
 {
     // For Each User, Add A Listing In The HTML Document
-    let userListDiv = document.getElementById("centerRight");
+    let userListDiv = document.getElementById("userListings");
     for (let i = 0; i < lightdm.users.length; i++)
     {
         let user = lightdm.users[i];
