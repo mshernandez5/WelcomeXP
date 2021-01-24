@@ -637,8 +637,8 @@ body
     width: min-content;
     height: min-content;
     padding: 1px;
-    border-radius: 4px;
-    background: linear-gradient(170deg, var(--button-outline-1) 50%,
+    border-radius: 2px;
+    background: linear-gradient(170deg, var(--button-outline-1) 35%,
         var(--button-outline-2));
 }
 
@@ -648,7 +648,7 @@ body
     height: min-content;
     padding: 1px;
     border: solid 1px var(--button-border);
-    border-radius: 4px;
+    border-radius: 3px;
     background: linear-gradient(var(--button-normal-border-1),
         var(--button-normal-border-2));
 }
@@ -672,6 +672,6 @@ body
     outline: none;
     border: none;
     padding: 0px 8px 0px 8px;
-    background: linear-gradient(180deg, var(--button-background-1) 50%,
-        var(--button-background-2) 60%, var(--button-background-3) 80%);
+    background: linear-gradient(180deg, var(--button-background-1),
+        var(--button-background-2) 90%, var(--button-background-3) 95%);
 }
