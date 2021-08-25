@@ -96,10 +96,15 @@ function autologin_timer_expired()
  */
 
 // Called When A User Listing In The Menu Is Selected
-function setActiveUser(event)
+function onUserClick(event)
+{
+    setActiveUser(event.currentTarget);
+}
+
+// Sets A User Listing Element As The Active One
+function setActiveUser(userListing)
 {
     // Get Information For The Selected User Listing
-    let userListing = event.currentTarget;
     let userName = lightdm.users[userListing.getAttribute("data-user-index")].name;
     // If Selected User Already Active, Do Nothing
     if (userName === activeUserName)
@@ -213,6 +218,43 @@ function cancelShutdownPrompt()
     overlay.classList.remove("active");
 }
 
+// Listen For Keys
+const KEY_ESCAPE = 27;
+const KEY_TAB = 9;
+document.addEventListener("keydown", onKeyEvent);
+function onKeyEvent(event)
+{
+    // Remove Any Password Error Popup On Key Press
+    removePopup();
+    // Check If Shutdown Prompt Open
+    let shutdownPromptOpen = document.querySelector("#shutdown-prompt-overlay").classList.contains("active");
+    // Key Events For Shutdown Prompt
+    if (shutdownPromptOpen)
+    {
+        // Close Shutdown Prompt
+        if (event.keyCode === KEY_ESCAPE)
+        {
+            cancelShutdownPrompt();
+        }
+    }
+    // Key Events For General Login Screen
+    else
+    {
+        // Tab Between Users
+        if (event.keyCode === KEY_TAB)
+        {
+            event.preventDefault();
+            let next;
+            if (!activeUserListing || !(next = activeUserListing.parentElement.nextElementSibling))
+            {
+                next = document.querySelector("#userListings div:first-of-type");
+                console.log(next);
+            }
+            setActiveUser(next.firstElementChild);
+        }
+    }
+}
+
 /*
  * These are the initialization procedures when
  * the script execution begins.
@@ -262,7 +304,7 @@ function init()
         // Associate Listing With Associated User Index
         userClickBox.setAttribute("data-user-index", i);
         // Add User Selection Listener
-        userClickBox.addEventListener("click", setActiveUser);
+        userClickBox.addEventListener("click", onUserClick);
         // Add Login Form Listener
         loginForm.addEventListener("submit", attemptLogin);
     }
