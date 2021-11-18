@@ -71,7 +71,7 @@ function authentication_complete()
         mainContent.innerHTML = "";
         mainContent.appendChild(welcomeBodyContent);
         // After Welcome Screen Timeout, Start Session
-        setTimeout(function() {lightdm.start_session_sync(lightdm.default_session)}, welcomeScreenTimeout);
+        setTimeout(function() {lightdm.start_session(lightdm.default_session)}, welcomeScreenTimeout);
     }
     else
     {
@@ -105,7 +105,7 @@ function onUserClick(event)
 function setActiveUser(userListing)
 {
     // Get Information For The Selected User Listing
-    let userName = lightdm.users[userListing.getAttribute("data-user-index")].name;
+    let userName = lightdm.users[userListing.getAttribute("data-user-index")].username;
     // If Selected User Already Active, Do Nothing
     if (userName === activeUserName)
     {
@@ -279,6 +279,14 @@ function checkInit()
 
 function init()
 {
+    lightdm.show_prompt?.connect((prompt, type) => {
+      show_prompt(prompt, type);
+    });
+    lightdm.show_message?.connect((msg, type) => {
+      show_message(msg, type);
+    });
+    lightdm.authentication_complete?.connect(() => authentication_complete());
+    lightdm.autologin_timer_expired?.connect(() => autologin_timer_expired());
     // For Each User, Add A Listing In The HTML Document
     let userListDiv = document.getElementById("userListings");
     for (let i = 0; i < lightdm.users.length; i++)
