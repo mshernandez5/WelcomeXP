@@ -58,7 +58,7 @@ If you have no experience installing or configuring greeters then I recommend yo
 * If you do not have a user profile picture set, the default is the Windows XP dirt bike profile picture. If you want to change this, most desktop environments will have an option to add a custom picture to your account under a group of settings generally named "Users" or similar.
 
 # nody-greeter Installation
-1) Make sure you have the necessary dependencies: `gobject-introspection`, `liblightdm-gobject`, `liblightdm-gobject-dev`, `libcairo2`. These may be obtained differently depending on your distribution. On most Ubuntu-based distributions you should be able to use `sudo apt install libgirepository1.0-dev liblightdm-gobject-1-0 liblightdm-gobject-1-dev libcairo2`
+1) Make sure you have the necessary dependencies: `gobject-introspection`, `liblightdm-gobject`, `liblightdm-gobject-dev`, `libcairo2-dev`. These may be obtained differently depending on your distribution. On most Ubuntu-based distributions you should be able to use `sudo apt install libgirepository1.0-dev liblightdm-gobject-1-0 liblightdm-gobject-1-dev libcairo2-dev`
 2) Install Node.js v16.x with help from [this page](https://github.com/nodesource/distributions).
 3) Clone the [`nody-greeter`](https://github.com/JezerM/nody-greeter) project into its own folder, ex. `git clone https://github.com/JezerM/nody-greeter.git`
 4) Set the current directory to the newly created folder, ex. `cd nody-greeter`
