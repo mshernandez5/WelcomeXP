@@ -24,14 +24,14 @@
  }
 
 /*
- * Include framd.ttf (Franklin Gothic Medium)
+ * Include FRADMIT.TTF (Franklin Gothic Demi Italic)
  * in the fonts directory to display the correct
  * welcome screen font.
  */
 @font-face
 {
-    font-family: "Franklin Gothic Medium";
-    src: url("../fonts/framd.ttf");
+    font-family: "Franklin Gothic Demi Italic";
+    src: url("../fonts/FRADMIT.TTF");
 }
 
 :root
@@ -538,11 +538,9 @@ body
 
 #welcome
 {
-    font-family: "Franklin Gothic Medium", sans-serif;
-    font-weight: bold;
-    font-style: italic;
+    font-family: "Franklin Gothic Demi Italic", sans-serif;
     font-size: 50px;
-    text-shadow: 2px 3px 0 var(--shadow-color);
+    text-shadow: 2px 2px 0 var(--shadow-color);
     margin: auto 0;
 }
 

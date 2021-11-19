@@ -1,15 +1,29 @@
 # WelcomeXP
-A lightdm-webkit2-greeter to mimic the Windows XP login screen.
+A lightdm web-greeter 3.0 theme to mimic the Windows XP login screen.
 
-There is a [*really great Windows XP theme for Cinnamon*](https://github.com/ndwarshuis/CinnXP) which I've been using practically since it existed (thanks, @ndwarshuis).
+There is a [*really great Windows XP theme for Cinnamon*](https://github.com/ndwarshuis/CinnXP) which I've been using practically since it existed (thanks, [@ndwarshuis](https://github.com/ndwarshuis)).
 
 I found that there seems to be no recent attempts to make a greeter to match it, which is where this project began.
 
-With the help of the lightdm-webkit2-greeter engine, this theme makes an attempt at recreating the XP login screen.
+# Notice: Migration To [nody-greeter](https://github.com/JezerM/nody-greeter) / [web-greeter 3.0](https://github.com/JezerM/web-greeter)
+As you may know, [lightdm-webkit2-greeter](https://github.com/Antergos/web-greeter) was maintained by the Antergos team which fell apart years ago.
+Unfortunately, this left us in a situation where lots of themes (this one included) were reliant on an unmaintained package; if anything were to break as the software around it updates, we'd all be out of luck.
 
-The lightdm-webkit2-greeter engine has a few inconsistencies with regular browsers (especially for flex layout) but for the most part you can get a general idea of how the screen will look simply by cloning the project and viewing `index.html` in a standard browser. Things aren't perfect yet, but they come decently close to the real thing. Take a look at the screenshots below, captured from a virtual machine with this theme in actual use:
+Fortunately, [@JezerM](https://github.com/JezerM) revived work on the project in the form of [web-greeter 3.0](https://github.com/JezerM/web-greeter).
+
+Even better, they began work on a new project which creates a more modern substitute to the aging lightdm-webkit2-greeter using Node.js and Electron: [nody-greeter](https://github.com/JezerM/nody-greeter).
+
+WelcomeXP has migrated to supporting these projects instead of lightdm-webkit2-greeter.
+
+While themes for nody-greeter and web-greeter 3.0 should work with interchangeably, moving to work with them will render WelcomeXP incompatible with lightdm-webkit2-greeter. Unfortunately for those who installed this theme previously, this means any future updates will not be as straightforward and will require switching to one of the new greeters.
+
+If you currently have lightdm-webkit2-greeter and do not wish to install any replacements, you can download version v0.2.1 which will be the last to work with the old greeter.
 
 # Screenshots
+You can get a good idea of how the screen will look simply by cloning the project and viewing `index.html` in a standard browser. Things aren't perfect yet, but they come decently close to the real thing.
+
+Take a look at the screenshots below, captured from a virtual machine with this theme in actual use:
+
 Login:
 
 ![login](screenshot/login.png)
@@ -35,24 +49,34 @@ Multiple Users:
 ![multiple_users](screenshot/multiple_users.png)
 
 # Warnings
-If you have no experience installing or configuring `lightdm-webkit2-greeter` then I recommend you have extreme caution installing this theme and avoid it if you are not comfortable with the possibility of recovering your login screen from the command line. While I do not currently have any severe issues using the theme on a daily basis myself, I will continue to make small changes that could affect stability in the future. A broken lightdm theme can prevent you from logging in graphically. In this case, you can switch to another tty and revert changes to the configurations using an editor like `nano`. While I do not plan to push breaking changes, I do not make any guarantees over this project and would not want someone to break their system who would have a hard time restoring it.
+If you have no experience installing or configuring greeters then I recommend you have extreme caution installing this theme; avoid it if you are not comfortable with the possibility of recovering your login screen from the command line. While I have not come across any severe issues using the theme on a daily basis myself, I may continue to make small changes that could affect stability in the future. A broken web-greeter theme can prevent you from logging in graphically. In this case, you can switch to another tty and revert changes to the configurations from the command-line using an editor like `nano`. While I do not plan to push breaking changes, I do not make any guarantees over this project and would not want someone to break their system who would have a hard time restoring it.
 
 # Important Notes
 *Please be aware of the following:*
-* The theme does ***not*** support choosing a desktop environment within the login screen; you will need to make sure to customize `index.theme` to the one you need.
-* If you do not have a user profile picture set, the default is the Windows XP dirt bike profile picture.
-* There is no option to manually enter a username. If you have users which are hidden from the user list used by lightdm then you will not be able to access that account from this login screen.
+* The theme does ***not*** support choosing a desktop environment within the login screen; you will need to make sure the default user-session selected by lightdm is fine. Generally this should not be a problem unless you have multiple desktop environments you like to switch between.
+* There is currently no option to manually enter a username. If you have users which are hidden from the list given to lightdm then you will not be able to access that account from this login screen.
+* If you do not have a user profile picture set, the default is the Windows XP dirt bike profile picture. If you want to change this, most desktop environments will have an option to add a custom picture to your account under a group of settings generally named "Users" or similar.
 
-# Installation
-1) Install the `lightdm-webkit2-greeter` package and set `greeter-session=lightdm-webkit2-greeter` in your lightdm configuration.
-2) Clone the `WelcomeXP` project into its own folder.
-3) Edit the `index.theme` in the project folder and ensure that the `session=` matches your desktop environment. By default, the login screen will attempt to launch `cinnamon`.
-4) *OPTIONAL, BUT RECOMMENDED* Create a `fonts` directory in the `WelcomeXP` folder and place copies of `tahoma.ttf`, `tahomabd.ttf`, and `framd.ttf` into the new directory for a more authentic login screen. If you have a Windows installation, you can easily grab them from `C:\Windows\Fonts`.
-5) Copy the `WelcomeXP` folder into the `themes` directory for the webkit greeter, ex. `sudo cp -R WelcomeXP /usr/share/lightdm-webkit/themes`.
-6) Ensure that the theme folder has adequate permissions for the system to read the necessary files, ex. `sudo chmod -R 755 /usr/share/lightdm-webkit/themes/WelcomeXP`.
-7) Modify `lightdm-webkit2-greeter.conf` and set the `webkit_theme = WelcomeXP`.
-8) Run `lightdm --test-mode` to ensure that the theme was installed correctly. If the theme appears in a small window without errors, there is likely no issue. If you see a pop-up warning that the theme has errors, then there is some issue with either the theme or installation and you may want to revert your changes before rebooting or logging out. As a side note, I would not recommend letting `lightdm --test-mode` capture your keyboard/mouse input as this has always caused issues for me when testing any theme where it will freeze up (without releasing the mouse or keyboard).
-9) Enjoy the theme! If you want to install an updated version, you can remove the older version of the theme, ex. `sudo rm -rf /usr/share/lightdm-webkit/themes/WelcomeXP`, then redo steps 2-7 skipping configuration changes that were already done. Always make sure to test the theme on step 7 so you don't run into any unexpected issues.
+# nody-greeter Installation
+1) Make sure you have the necessary dependencies: `gobject-introspection`, `liblightdm-gobject`, `liblightdm-gobject-dev`, `libcairo2`. These may be obtained differently depending on your distribution. On most Ubuntu-based distributions you should be able to use `sudo apt install libgirepository1.0-dev liblightdm-gobject-1-0 liblightdm-gobject-1-dev libcairo2`
+2) Install Node.js v16.x with help from [this page](https://github.com/nodesource/distributions).
+3) Clone the [`nody-greeter`](https://github.com/JezerM/nody-greeter) project into its own folder, ex. `git clone https://github.com/JezerM/nody-greeter.git`
+4) Set the current directory to the newly created folder, ex. `cd nody-greeter`
+5) Run `npm install` to fetch dependencies.
+6) Run `npm run rebuild`
+7) Run `npx tsc` to compile the TypeScript files to JavaScript (if this fails then get tsc with `npm install typescript` and try again).
+8) Run `node make build`
+9) Run `sudo node make install` to install the built project.
 
-Example of a successful run of `lightdm --test-mode`:
+# WelcomeXP Installation
+1) Install `nody-greeter` and set `greeter-session=nody-greeter` in your lightdm configuration. You may choose to install [`web-greeter`](https://github.com/JezerM/web-greeter) instead assuming you modify these steps accordingly.
+2) Clone the `WelcomeXP` project into its own folder, ex. `git clone https://github.com/mshernandez5/WelcomeXP.git`
+3) *OPTIONAL, BUT RECOMMENDED* Create a `fonts` directory in the `WelcomeXP` folder and place copies of `tahoma.ttf`, `tahomabd.ttf`, and `FRADMIT.TTF` into the new directory for a more authentic login screen. If you have a Windows installation, you can easily grab them from `C:\Windows\Fonts`
+4) Copy the `WelcomeXP` folder into the `themes` directory for the webkit greeter, ex. `sudo cp -R WelcomeXP /usr/share/web-greeter/themes`
+5) Ensure that the theme folder permissions allow the greeter to read the necessary files, ex. `sudo chmod -R 755 /usr/share/web-greeter/themes/WelcomeXP`
+6) Modify `/etc/lightdm/web-greeter.yml` and set `theme: WelcomeXP`
+7) Run `nody-greeter --debug` to ensure that the theme was installed correctly. You should add `X-LightDM-Allow-Greeter=true` to your `/usr/share/xsessions/` desktop file before attempting this. If the theme appears in a window without errors, there is likely no issue. If you run into any errors or fail to see the theme, then there may be an issue with either the theme or installation and you should revert your configuration changes before rebooting or logging out.
+8) Enjoy the theme! If you want to install an updated version, you can remove the older version of the theme, ex. `sudo rm -rf /usr/share/web-greeter/themes/WelcomeXP`, then redo steps 2-7 skipping configuration changes that were already done. Always make sure to test the theme on step 7 so you don't run into any unexpected issues.
+
+Example of a successful run of `nody-greeter --debug`:
 ![lightdm_test_mode](screenshot/lightdm_test_mode.png)
