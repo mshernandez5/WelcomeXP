@@ -17,7 +17,7 @@ WelcomeXP has migrated to supporting these projects instead of lightdm-webkit2-g
 
 While themes for nody-greeter and web-greeter 3.0 should work with interchangeably, moving to work with them will render WelcomeXP incompatible with lightdm-webkit2-greeter. Unfortunately for those who installed this theme previously, this means any future updates will not be as straightforward and will require switching to one of the new greeters.
 
-If you currently have lightdm-webkit2-greeter and do not wish to install any replacements, you can download version v0.2.1 which will be the last to work with the old greeter.
+If you currently have lightdm-webkit2-greeter and do not wish to install any replacements, you can download version [v0.2.1](https://github.com/mshernandez5/WelcomeXP/releases/tag/v0.2.1) which will be the last to work with the old greeter.
 
 # Screenshots
 You can get a good idea of how the screen will look simply by cloning the project and viewing `index.html` in a standard browser. Things aren't perfect yet, but they come decently close to the real thing.
