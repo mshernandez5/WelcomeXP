@@ -1,26 +1,10 @@
 /*
- * Windows XP LightDM Webkit Greeter Theme
+ * Windows XP nody-greeter / web-greeter Theme
  * by Markus Hernandez
  * 
- * For anybody taking a look at this as a reference
- * to make their own lightdm-webkit-greeter theme,
- * check the man pages for lightdm-webkit2-greeter
- * after having this package installed; it has the
- * most complete description of the API available
- * as far as I am aware.
- * 
- * This is how the process works with a correct login:
- * 
- * This Script                              LightDM
- * Authenticate [Selected Username] ->
- *                       <- What is their password?
- * Respond With Password ->
- *     <- Call Authentication Complete Callback Method
- * 
- * Finally,
- * Check lightdm.is_authenticated, which will indicate
- * whether the password was correct. If so, log the
- * user in.
+ * If you are looking to develop your own web-greeter
+ * theme, then check out https://jezerm.github.io/web-greeter/
+ * for documentation.
  */
 
 // Mininum Time To Show Welcome Screen (Milliseconds)
@@ -260,30 +244,13 @@ function onKeyEvent(event)
  * the script execution begins.
  */
 
-/*
- * lightdm is sometimes unavailable at the time
- * this script executes causing crashes.
- * This alleviates the issue by waiting until
- * the object is initialized.
- */
-let interval = setInterval(checkInit, 10);
-
-function checkInit()
-{
-    if (lightdm)
-    {
-        clearInterval(interval);
-        init();
-    }
-}
-
 function init()
 {
     lightdm.show_prompt?.connect((prompt, type) => {
-      show_prompt(prompt, type);
+        show_prompt(prompt, type);
     });
     lightdm.show_message?.connect((msg, type) => {
-      show_message(msg, type);
+        show_message(msg, type);
     });
     lightdm.authentication_complete?.connect(() => authentication_complete());
     lightdm.autologin_timer_expired?.connect(() => autologin_timer_expired());
@@ -317,3 +284,11 @@ function init()
         loginForm.addEventListener("submit", attemptLogin);
     }
 }
+
+/*
+ * lightdm is sometimes unavailable at the time
+ * this script executes causing crashes.
+ * This solves the issue by waiting until
+ * the object is initialized.
+ */
+window.addEventListener("GreeterReady", init);
