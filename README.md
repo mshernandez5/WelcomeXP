@@ -79,4 +79,4 @@ If you have no experience installing or configuring greeters then I recommend yo
 8) Enjoy the theme! If you want to install an updated version, you can remove the older version of the theme, ex. `sudo rm -rf /usr/share/web-greeter/themes/WelcomeXP`, then redo steps 2-7 skipping configuration changes that were already done. Always make sure to test the theme on step 7 so you don't run into any unexpected issues.
 
 Example of a successful run of `nody-greeter --debug`:
-![lightdm_test_mode](screenshot/lightdm_test_mode.png)
+![nody_greeter_debug](screenshot/nody_greeter_debug.png)
