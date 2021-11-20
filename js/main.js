@@ -264,12 +264,14 @@ function init()
         let userListing = template.content.cloneNode(true);
         // Populate Template With User-Specific Information
         userListing.querySelector(".user-name").textContent = user.display_name;
-        let userImage = user.image;
-        if (!userImage)
-        {
-            userImage = defaultProfilePicture;
-        }
-        userListing.querySelector(".profile-picture").setAttribute("src", userImage);
+        // If Profile Picture Not Found, Use Default
+        let userImage = userListing.querySelector(".profile-picture");
+        userImage.addEventListener("error", (event) => {
+            console.log("Failed to open profile picture \"" + user.image + "\" for "
+                + user.username + ", using default image instead!");
+            userImage.setAttribute("src", defaultProfilePicture);
+        });
+        userImage.setAttribute("src", user.image);
         // Get Reference To Click Area
         let userClickBox = userListing.querySelector(".user");
         // Get Reference To Login Form
