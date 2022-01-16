@@ -64,9 +64,8 @@ If you have no experience installing or configuring greeters then I recommend yo
 4) Set the current directory to the newly created folder, ex. `cd nody-greeter`
 5) Run `npm install` to fetch dependencies.
 6) Run `npm run rebuild`
-7) Run `npx tsc` to compile the TypeScript files to JavaScript (if this fails then get tsc with `npm install typescript` and try again).
-8) Run `node make build`
-9) Run `sudo node make install` to install the built project.
+7) Run `npm run build`
+8) Run `sudo node make install` to install the built project.
 
 # WelcomeXP Installation
 1) Add `X-LightDM-Allow-Greeter=true` to your `/usr/share/xsessions/` desktop file then log out and back in. This is not necessary for installation but is necessary to test whether the installation was successful, and it isn't a good idea to set this later on since an error in the process could prevent you from logging back in (the purpose of running the test is to recognize any issue before logging out or shutting down the computer).
