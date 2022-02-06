@@ -64,19 +64,20 @@ The following instructions are a quick (and possibly outdated by the time you re
 
 1) Make sure you have any necessary dependencies. Obviously you'll need `lightdm` (which is default on some distributions such as Linux Mint). You will also need `python3`, which is included by default with many (but not all) distributions. You can aquire the other required packages via `sudo apt install build-essential libgirepository1.0-dev liblightdm-gobject-1-0 liblightdm-gobject-1-dev libcairo2-dev`
 2) Install Node.js v16.x with help from [this page](https://github.com/nodesource/distributions).
-3) Clone the `nody-greeter` project into its own folder, ex. `git clone https://github.com/JezerM/nody-greeter.git`
+3) Clone the `nody-greeter` project into its own folder, ex. `git clone https://github.com/JezerM/nody-greeter.git`\
 4) Set the current directory to the newly created folder, ex. `cd nody-greeter`
-5) Run `npm install` to fetch dependencies.
-6) Run `npm run rebuild`
-7) Run `npm run build`
-8) Run `sudo node make install` to install the built project.
+5) It is generally safest to choose a version instead of using the latest code by running `git checkout 1.4.0`, for example. Check the repository for the latest version.
+6) Run `npm install` to fetch dependencies.
+7) Run `npm run rebuild`
+8) Run `npm run build`
+9) Run `sudo node make install` to install the built project.
 
 # WelcomeXP Installation
 1) Add `X-LightDM-Allow-Greeter=true` to your `/usr/share/xsessions/` desktop file then log out and back in. This is not necessary for installation but is necessary to test whether the installation was successful, and it isn't a good idea to set this later on since an error in the process could prevent you from logging back in (the purpose of running the test is to recognize any issue before logging out or shutting down the computer).
 2) Install `nody-greeter` and set `greeter-session=nody-greeter` in your lightdm configuration. You may choose to install [`web-greeter`](https://github.com/JezerM/web-greeter) instead assuming you modify these steps accordingly.
 3) If your distribution did not originally come with LightDM you must set a default user session corresponding to an option available in `/usr/share/xsessions`. For example, on Lubuntu I can select `/usr/share/xsessions/Lubuntu.session` as the default by adding `user-session=Lubuntu` to the lightdm configuration. Most distributions with LightDM as the default display manager such as Linux Mint Cinnamon should already have this preconfigured.
 4) Clone the `WelcomeXP` project into its own folder, ex. `git clone https://github.com/mshernandez5/WelcomeXP.git`\
-Just in case the very latest code is broken, you may also want to move back to the last release version by doing `git checkout v0.3.0` within the newly created WelcomeXP directory. If you see very recent commits they might not have been extensively tested yet.
+Just in case the very latest code is broken, you may also want to move back to the last release version by doing `git checkout v0.3.1` within the newly created WelcomeXP directory. If you see very recent commits they might not have been extensively tested yet.
 5) *OPTIONAL, BUT RECOMMENDED* Create a `fonts` directory in the `WelcomeXP` folder and place copies of `tahoma.ttf`, `tahomabd.ttf`, and `FRADMIT.TTF` into the new directory for a more authentic login screen. If you have a Windows installation, you can easily grab them from `C:\Windows\Fonts`
 6) Copy the `WelcomeXP` folder into the `themes` directory for the webkit greeter, ex. `sudo cp -R WelcomeXP /usr/share/web-greeter/themes`
 7) Ensure that the theme folder permissions allow the greeter to read the necessary files, ex. `sudo chmod -R 755 /usr/share/web-greeter/themes/WelcomeXP`
