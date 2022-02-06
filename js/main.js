@@ -165,6 +165,10 @@ shutdownOptionsButton.addEventListener("click", showShutdownPrompt);
 // Show Prompt Overlay With Shutdown Options
 function showShutdownPrompt()
 {
+    if (window.nody_greeter)
+    {
+        nody_greeter.broadcast({type: "shutdown-overlay-enable"});
+    }
     document.querySelector("#main-content").style.filter = "grayscale(0.90)";
     let overlay = document.querySelector("#shutdown-prompt-overlay");
     overlay.classList.add("active");
@@ -197,6 +201,10 @@ const cancelButton = document.querySelector("#shutdown-cancel-button");
 cancelButton.addEventListener("click", cancelShutdownPrompt);
 function cancelShutdownPrompt()
 {
+    if (window.nody_greeter)
+    {
+        nody_greeter.broadcast({type: "shutdown-overlay-disable"});
+    }
     document.querySelector("#main-content").style.filter = "none";
     let overlay = document.querySelector("#shutdown-prompt-overlay");
     overlay.classList.remove("active");
