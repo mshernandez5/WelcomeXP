@@ -64,7 +64,7 @@ The following instructions are a quick (and possibly outdated by the time you re
 
 1) Make sure you have any necessary dependencies. Obviously you'll need `lightdm` (which is default on some distributions such as Linux Mint). You will also need `python3`, which is included by default with many (but not all) distributions. You can aquire the other required packages via `sudo apt install build-essential libgirepository1.0-dev liblightdm-gobject-1-0 liblightdm-gobject-1-dev libcairo2-dev`
 2) Install Node.js v16.x with help from [this page](https://github.com/nodesource/distributions).
-3) Clone the `nody-greeter` project into its own folder, ex. `git clone https://github.com/JezerM/nody-greeter.git`\
+3) Clone the `nody-greeter` project into its own folder, ex. `git clone https://github.com/JezerM/nody-greeter.git`
 4) Set the current directory to the newly created folder, ex. `cd nody-greeter`
 5) It is generally safest to choose a version instead of using the latest code by running `git checkout 1.4.0`, for example. Check the repository for the latest version.
 6) Run `npm install` to fetch dependencies.
