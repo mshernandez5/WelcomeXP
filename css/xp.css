@@ -55,7 +55,7 @@
 
     /* User Listing Colors */
     --user-listing-0: #0E3997;
-    --user-listing-1: #5A7EDC;
+    --user-listing-1: #94B3F4;
     --user-listing-border-selected: white;
     --profile-picture-border-normal: white;
     --profile-picture-border-inner: #eeff00;
@@ -71,6 +71,8 @@
     --footer-stripe-3: #00309C;
 
     /* Shutdown Prompt Colors */
+    --shutdown-prompt-bg-0: var(--primary-bg);
+    --shutdown-prompt-bg-1: #90a9e9;;
     --button-background-1: #F7F3EF;
     --button-background-2: #E5F0E2;
     --button-background-3: #D6D3C6;
@@ -564,7 +566,7 @@ body
 {
     display: flex;
     flex-direction: column;
-    background-color: var(--primary-bg);
+    background: linear-gradient(to right, var(--shutdown-prompt-bg-0), var(--shutdown-prompt-bg-1), var(--shutdown-prompt-bg-0));
     border: 1px solid black;
     width: var(--shutdown-prompt-width);
     height: var(--shutdown-prompt-height);
