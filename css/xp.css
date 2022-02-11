@@ -17,11 +17,11 @@
  * Include tahomabd.ttf in the fonts directory
  * to display bold fonts correctly.
  */
- @font-face
- {
-     font-family: "Tahoma Bold";
-     src: url("../fonts/tahomabd.ttf");
- }
+@font-face
+{
+    font-family: "Tahoma Bold";
+    src: url("../fonts/tahomabd.ttf");
+}
 
 /*
  * Include FRADMIT.TTF (Franklin Gothic Demi Italic)
