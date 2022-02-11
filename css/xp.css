@@ -574,6 +574,7 @@ body
 
 #shutdown-prompt-header
 {
+    font-weight: bold;
     width: 100%;
     height: var(--shutdown-header-height);
     background-color: var(--header-bg);
@@ -608,6 +609,7 @@ body
 
 #shutdown-prompt-options
 {
+    font-weight: bold;
     font-size: var(--shutdown-prompt-option-font-size);
     flex-grow: 1;
     display: flex;
