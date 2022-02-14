@@ -72,7 +72,7 @@
 
     /* Shutdown Prompt Colors */
     --shutdown-prompt-bg-0: var(--primary-bg);
-    --shutdown-prompt-bg-1: #90a9e9;;
+    --shutdown-prompt-bg-1: #90a9e9;
     --button-background-1: #F7F3EF;
     --button-background-2: #E5F0E2;
     --button-background-3: #D6D3C6;
