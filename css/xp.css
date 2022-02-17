@@ -126,8 +126,8 @@
     --error-popup-left-margin: calc(var(--password-left-margin) + var(--password-entry-length) / 2);
 
     /* Sizes - Shutdown Prompt */
-    --shutdown-prompt-width: 350px;
-    --shutdown-prompt-height: 225px;
+    --shutdown-prompt-width: 320px;
+    --shutdown-prompt-height: 200px;
     --shutdown-header-height: 20%;
     --shutdown-prompt-option-font-size: 12px;
     --shutdown-option-button-size: 32px;
