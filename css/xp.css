@@ -191,7 +191,13 @@ body
 
 #logo
 {
-    width: 150px;
+    width: 136px;
+}
+
+#logo-text-gap
+{
+    display: block;
+    margin-top: 16px;
 }
 
 #center
@@ -217,7 +223,7 @@ body
  */
 #center > *
 {
-    margin-right: 3%;
+    margin-right: 2%;
 }
 #center > *:last-child
 {
