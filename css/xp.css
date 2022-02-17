@@ -347,6 +347,7 @@ body
     width: var(--profile-picture-size);
     height: var(--profile-picture-size);
     padding: var(--profile-picture-border-size);
+    box-shadow: 1px 1px 2px var(--shadow-color);
 }
 
 .user:hover .profile-picture-wrapper, .user.active .profile-picture-wrapper
