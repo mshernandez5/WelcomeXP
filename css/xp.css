@@ -200,6 +200,7 @@ body
 #logo-text-gap
 {
     display: block;
+    content: " ";
     margin-top: var(--logo-text-gap);
 }
 
