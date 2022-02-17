@@ -197,11 +197,11 @@ body
     width: var(--logo-size);
 }
 
-#logo-text-gap
+#text-under-logo
 {
     display: block;
-    content: " ";
-    margin-top: var(--logo-text-gap);
+    margin: var(--logo-text-gap) calc(var(--logo-size) * 0.165) 0 0;
+    font-weight: bold;
 }
 
 #center
@@ -240,8 +240,6 @@ body
     flex: 1 1 0px;
     /* Child Positioning */
     text-align: end;
-    /* Text */
-    font-weight: bold;
 }
 
 #centerDivider
