@@ -159,7 +159,7 @@ function disablePasswordForms(isDisabled)
  */
 
 // Attach Shutdown Options Button Listener
-const shutdownOptionsButton = document.getElementById("shutdown-options");
+const shutdownOptionsButton = document.getElementById("shutdown-group");
 shutdownOptionsButton.addEventListener("click", showShutdownPrompt);
 
 // Show Prompt Overlay With Shutdown Options

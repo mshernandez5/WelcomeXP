@@ -319,6 +319,16 @@ body
     font-weight: bold;
 }
 
+#shutdown-group:hover
+{
+    cursor: pointer;
+}
+
+#shutdown-group:hover > span
+{
+    text-decoration: underline;
+}
+
 #shutdown-options
 {
     height: var(--image-button-size);;
