@@ -95,19 +95,22 @@
     --stripe-height: 2px;
     --center-divider-width: 1px;
     --center-divider-height: 80%;
-    --image-button-size: 28px;
+    --logo-size: 136px;
+    --logo-text-gap: 16px;
+    --image-button-size: 24px;
 
     /* Sizes - User Listing */
     --user-listing-width: 80%;
-    --user-listing-horizontal-gap: 15px;
-    --profile-picture-size: 55px;
+    --user-listing-horizontal-gap: 12px;
+    --user-listing-padding: 8px;
+    --profile-picture-size: 48px;
     --profile-picture-border-radius: 6px;
     --profile-picture-border-size: 2px;
 
     /* Sizes - Password Entry Group */
-    --password-entry-length: 200px;
-    --password-entry-height: 28px;
-    --password-entry-offset: 4px;
+    --password-entry-length: 164px;
+    --password-entry-height: 24px;
+    --password-entry-offset: 6px;
     --password-top-margin: calc(var(--profile-picture-size) * 0.5);
     --password-left-margin: calc(2 * var(--profile-picture-border-size) + var(--user-listing-horizontal-gap) + var(--profile-picture-size) - var(--password-entry-offset));
 
@@ -191,13 +194,13 @@ body
 
 #logo
 {
-    width: 136px;
+    width: var(--logo-size);
 }
 
 #logo-text-gap
 {
     display: block;
-    margin-top: 16px;
+    margin-top: var(--logo-text-gap);
 }
 
 #center
@@ -236,6 +239,8 @@ body
     flex: 1 1 0px;
     /* Child Positioning */
     text-align: end;
+    /* Text */
+    font-weight: bold;
 }
 
 #centerDivider
@@ -310,6 +315,11 @@ body
     margin: 3%;
 }
 
+#shutdown-group
+{
+    font-weight: bold;
+}
+
 #shutdown-options
 {
     height: var(--image-button-size);;
@@ -354,24 +364,10 @@ body
     position: relative;
     background-color: var(--primary-bg);
     outline: 1px solid var(--primary-bg);
-    padding: 6px 0 6px 6px;
+    padding: var(--user-listing-padding) 0 var(--user-listing-padding) var(--user-listing-padding);
     display: flex;
     flex-direction: row;
-    /* gap: var(--user-listing-horizontal-gap); */
-}
-
-/*
- * Workaround since flex gap is not
- * yet correctly supported by the webkit
- * version included in the lighdm package.
- */
-.user > *
-{
-    margin-right: var(--user-listing-horizontal-gap);
-}
-.user > *:last-child
-{
-    margin-right: 0;
+    gap: var(--user-listing-horizontal-gap);
 }
 
 .user:hover
@@ -388,6 +384,11 @@ body
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     background: linear-gradient(90deg, var(--user-listing-0), var(--user-listing-1));
+}
+
+.user-name
+{
+    font-weight: bold;
 }
 
 .password-box
@@ -411,11 +412,6 @@ body
 .password-box > *:last-child
 {
     margin-bottom: 0;
-}
-
-.password-msg
-{
-    margin-left: var(--password-entry-offset);
 }
 
 .password
@@ -468,6 +464,7 @@ body
 
 .password-msg
 {
+    margin-left: var(--password-entry-offset);
     visibility: hidden;
     font-size: var(--message-font-size);
 }
