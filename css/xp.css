@@ -47,8 +47,8 @@
     --header-stripe-3: #5A7EDC;
 
     /* Center Section Colors */
-    --radial-gradient-inner: #92B2EF;
-    --radial-gradient-mid: #82A3E9;
+    --radial-gradient-inner: #91B1EF;
+    --radial-gradient-mid: #7698E6;
     --radial-gradient-outer: #5A7EDC;
     --center-divider-inner: #90ADED;
     --center-divider-outer: #5A7EDC;
@@ -211,8 +211,8 @@ body
     width: 100%;
     min-height: 0;
     /* Color */
-    background: radial-gradient(circle at 5% 0, var(--radial-gradient-inner) 0,
-        var(--radial-gradient-mid) 8%, var(--radial-gradient-outer) 15%);
+    background: radial-gradient(circle at 5% 5%, var(--radial-gradient-inner) 0,
+        var(--radial-gradient-mid) 6%, var(--radial-gradient-outer) 12%);
     /* Child Positioning */
     display: flex;
     flex-direction: row;
