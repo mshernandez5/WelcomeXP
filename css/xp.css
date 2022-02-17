@@ -58,8 +58,8 @@
     --user-listing-1: #94B3F4;
     --user-listing-border-selected: white;
     --profile-picture-border-normal: white;
-    --profile-picture-border-inner: #eeff00;
-    --profile-picture-border-outer: #ffae00;
+    --profile-picture-border-inner: #FFEE00;
+    --profile-picture-border-outer: #FFB600;
     --popup-background-color: #FFFFE1;
 
     /* Footer Colors */
@@ -342,7 +342,7 @@ body
 
 .profile-picture-wrapper
 {
-    background-color: var(--profile-picture-border-normal);;
+    background-color: var(--profile-picture-border-normal);
     border-radius: var(--profile-picture-border-radius);
     width: var(--profile-picture-size);
     height: var(--profile-picture-size);
@@ -352,8 +352,8 @@ body
 
 .user:hover .profile-picture-wrapper, .user.active .profile-picture-wrapper
 {
-    background: radial-gradient(65% 100% at center, var(--profile-picture-border-inner) 50%,
-        var(--profile-picture-border-outer) 85%);
+    background-color: var(--profile-picture-border-inner);
+    box-shadow: 1px 1px 2px var(--shadow-color), inset 0 0 1px 1px var(--profile-picture-border-outer);
 }
 
 .profile-picture
