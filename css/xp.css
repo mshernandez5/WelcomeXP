@@ -730,6 +730,10 @@ body
     {
 		filter: grayscale(0);
 	}
+	15%
+    {
+		filter: grayscale(0);
+	}
 	100%
     {
 		filter: grayscale(0.90);
@@ -738,6 +742,7 @@ body
 
 .grayscale
 {
-	animation: grayFadeIn 6s;
+	animation: grayFadeIn 5s;
 	animation-fill-mode: forwards;
+	animation-timing-function: steps(18, end);
 }
