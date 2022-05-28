@@ -383,6 +383,7 @@ body
 .user > *
 {
 	transition: 0.5s;
+	transition-property: opacity;
 }
 
 #centerRight:hover .user:not(.active) > *
