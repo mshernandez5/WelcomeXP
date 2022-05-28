@@ -100,7 +100,7 @@ export class ShutdownPrompt
             let overlay = document.querySelector("#shutdown-prompt-overlay");
             overlay.classList.add("active");
         }
-        document.querySelector("#main-content").style.filter = "grayscale(0.90)";
+        document.querySelector("#main-content").classList.add("grayscale");
         this.active = true;
     }
 
@@ -115,7 +115,7 @@ export class ShutdownPrompt
             let overlay = document.querySelector("#shutdown-prompt-overlay");
             overlay.classList.remove("active");
         }
-        document.querySelector("#main-content").style.filter = "none";
+        document.querySelector("#main-content").classList.remove("grayscale");
         this.active = false;
     }
 

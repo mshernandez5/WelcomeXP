@@ -723,3 +723,21 @@ body
     background: linear-gradient(180deg, var(--button-background-1),
         var(--button-background-2) 90%, var(--button-background-3) 95%);
 }
+
+@keyframes grayFadeIn
+{
+	0%
+    {
+		filter: grayscale(0);
+	}
+	100%
+    {
+		filter: grayscale(0.90);
+	}
+}
+
+.grayscale
+{
+	animation: grayFadeIn 6s;
+	animation-fill-mode: forwards;
+}
