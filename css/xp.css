@@ -744,5 +744,5 @@ body
 {
 	animation: grayFadeIn 5s;
 	animation-fill-mode: forwards;
-	animation-timing-function: steps(18, end);
+	animation-timing-function: steps(16, end);
 }
