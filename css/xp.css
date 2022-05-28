@@ -380,6 +380,21 @@ body
     gap: var(--user-listing-horizontal-gap);
 }
 
+.user > *
+{
+	transition: 0.5s;
+}
+
+#centerRight:hover .user:not(.active) > *
+{
+	opacity: 50%;
+}
+
+#centerRight:hover .user:not(.active):hover > *
+{
+	opacity: 100%;
+}
+
 .user:hover
 {
     cursor: pointer;

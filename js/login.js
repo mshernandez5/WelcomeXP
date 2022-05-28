@@ -60,6 +60,9 @@ export class Login
         // Add Key Listeners For Login Window
         document.addEventListener("keydown", (event) => this.onKeyEvent(event));
 
+        // Add Click Listener To Clear Any Selected User
+        document.addEventListener("click", () => this.setActiveUser(null));
+
         // Add Click Listener To Clear Any Open Popups
         document.addEventListener("click", () => this.removePopup(), true);
 
@@ -149,24 +152,34 @@ export class Login
     onUserClick(event)
     {
         this.setActiveUser(event.currentTarget);
+        event.stopPropagation();
     }
 
     /**
      * Set a user listing as the active one.
      * 
-     * @param {Element} userListing The selected user listing element.
+     * @param {Element} userListing The selected user listing element
+     *                              or null to clear the selection.
      */
     setActiveUser(userListing)
     {
-        // Get Information For The Selected User Listing
-        let userName = lightdm.users[userListing.getAttribute("data-user-index")].username;
+        // Get Name For The Selected User Listing
+        let userName;
+        if (userListing)
+        {
+            userName = lightdm.users[userListing.getAttribute("data-user-index")].username;
+        }
+        else
+        {
+            userName = null;
+        }
         // If Selected User Already Active, Do Nothing
         if (userName === this.activeUserName)
         {
             return;
         }
         // Switching Users, Cancel Previous Authentication
-        if (this.pendingAuthentication)
+        if (this.activeUserListing && this.pendingAuthentication)
         {
             // Make Previously Selected User Appear Unselected
             this.activeUserListing.classList.remove("active");
@@ -175,14 +188,19 @@ export class Login
             lightdm.cancel_authentication();
         }
         // Update Status To Reflect Selected User
-        this.pendingAuthentication = true;
         this.activeUserListing = userListing;
         this.activeUserName = userName;
+        // Don't Try To Authenticate New Selection If Clearing Selected User
+        if (!userListing)
+        {
+            return;
+        }
         // Assign Styles To Active User Listing
         this.activeUserListing.classList.add("active");
         // Focus Password Box
         this.activeUserListing.querySelector(".password").focus();
         // Begin Authentication
+        this.pendingAuthentication = true;
         lightdm.authenticate(this.activeUserName);
     }
 
