@@ -582,7 +582,7 @@ body
     border: 1px solid black;
     width: var(--shutdown-prompt-width);
     height: var(--shutdown-prompt-height);
-    margin-top: 13.5%
+    margin-top: 13.5%;
 }
 
 #shutdown-prompt-header
