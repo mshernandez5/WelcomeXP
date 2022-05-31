@@ -1,26 +1,20 @@
-window.addEventListener("NodyBroadcastEvent", nodyEventHandler);
+/**
+ * This script initializes a limited set of components for
+ * secondary windows on multi-monitor setups.
+ */
 
-function nodyEventHandler(event)
-{
-    switch (event.data.type)
-    {
-        case "shutdown-overlay-enable":
-            showShutdownOverlay();
-            break;
-        case "shutdown-overlay-disable":
-            hideShutdownOverlay();
-            break;
-        default:
-            console.warn("Unknown Nody Broadcast Event Received: " + event);
-    }
-}
+import {ShutdownPrompt} from './shutdown-prompt.js';
 
-function showShutdownOverlay()
+function init()
 {
-    document.querySelector("#main-content").style.filter = "grayscale(0.90)";
+   // Initialize Shutdown Prompt Script
+   let shutdownPrompt = new ShutdownPrompt();
 }
-
-function hideShutdownOverlay()
-{
-    document.querySelector("#main-content").style.filter = "none";
-}
+ 
+ /*
+  * lightdm is sometimes unavailable at the time
+  * this script executes causing crashes.
+  * This solves the issue by waiting until
+  * the object is initialized.
+  */
+window.addEventListener("GreeterReady", init);
