@@ -505,6 +505,7 @@ body
     font-size: var(--message-font-size);
     color: black;
     background-color: var(--popup-background-color);
+    width: var(--user-listing-width);
 }
 
 .password-error-popup.active
