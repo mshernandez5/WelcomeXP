@@ -1,23 +1,9 @@
 # WelcomeXP
-A lightdm web-greeter 3.0 theme to mimic the Windows XP login screen.
+A nody-greeter theme to mimic the Windows XP login screen.
 
 There is a [*really great Windows XP theme for Cinnamon*](https://github.com/ndwarshuis/CinnXP) which I've been using practically since it existed (thanks, [@ndwarshuis](https://github.com/ndwarshuis)).
 
 I found that there seems to be no recent attempts to make a greeter to match it, which is where this project began.
-
-# Notice: Migration To [nody-greeter](https://github.com/JezerM/nody-greeter) / [web-greeter 3.0](https://github.com/JezerM/web-greeter)
-As you may know, [lightdm-webkit2-greeter](https://github.com/Antergos/web-greeter) was maintained by the Antergos team which fell apart years ago.
-Unfortunately, this left us in a situation where lots of themes (this one included) were reliant on an unmaintained package; if anything were to break as the software around it updates, we'd all be out of luck.
-
-Fortunately, [@JezerM](https://github.com/JezerM) revived work on the project in the form of [web-greeter 3.0](https://github.com/JezerM/web-greeter).
-
-Even better, they began work on a new project which creates a more modern substitute to the aging lightdm-webkit2-greeter using Node.js and Electron: [nody-greeter](https://github.com/JezerM/nody-greeter).
-
-WelcomeXP has migrated to supporting these projects instead of lightdm-webkit2-greeter.
-
-While themes for nody-greeter and web-greeter 3.0 should work with either interchangeably, moving to work with them will render WelcomeXP incompatible with lightdm-webkit2-greeter. Unfortunately for those who installed this theme previously, this means any future updates will not be as straightforward and will require switching to one of the new greeters.
-
-If you currently have lightdm-webkit2-greeter and do not wish to install any replacements, you can download version [v0.2.1](https://github.com/mshernandez5/WelcomeXP/releases/tag/v0.2.1) which will be the last to work with the old greeter.
 
 # Screenshots
 You can get a good idea of how the screen will look simply by cloning the project and viewing `index.html` in a standard browser. Things aren't perfect yet, but they come decently close to the real thing.
@@ -32,13 +18,27 @@ Welcome Screen:
 
 ![welcome](screenshot/welcome.png)
 
-WelcomeXP vs Original:
+WelcomeXP vs Original Windows XP Login Screen:
 
 ![login_comparison](screenshot/login-comparison.png)
 
 ![password_error_comparison](screenshot/password-error-comparison.png)
 
 ![shutdown_prompt_comparison](screenshot/shutdown-prompt-comparison.png)
+
+# Notice: Migration To [nody-greeter](https://github.com/JezerM/nody-greeter)
+As you may know, [lightdm-webkit2-greeter](https://github.com/Antergos/web-greeter) was maintained by the Antergos team which fell apart years ago.
+Unfortunately, this left us in a situation where lots of themes (this one included) were reliant on an unmaintained package; if anything were to break as the software around it updates, we'd all be out of luck.
+
+Fortunately, [@JezerM](https://github.com/JezerM) revived work on the project in the form of [web-greeter 3.0](https://github.com/JezerM/web-greeter).
+
+Even better, they began work on a new project which creates a more modern substitute to the aging lightdm-webkit2-greeter using Node.js and Electron: [nody-greeter](https://github.com/JezerM/nody-greeter).
+
+WelcomeXP has migrated to supporting these projects instead of lightdm-webkit2-greeter.
+
+While themes for nody-greeter and web-greeter 3.0 should work with either interchangeably, moving to work with them will render WelcomeXP incompatible with lightdm-webkit2-greeter. Unfortunately for those who installed this theme previously, this means any future updates will not be as straightforward and will require switching to one of the new greeters.
+
+If you currently have lightdm-webkit2-greeter and do not wish to install any replacements, you can download version [v0.2.1](https://github.com/mshernandez5/WelcomeXP/releases/tag/v0.2.1) which will be the last to work with the old greeter.
 
 # Warnings
 If you have no experience installing or configuring greeters then I recommend you have extreme caution installing this theme; avoid it if you are not comfortable with the possibility of recovering your login screen from the command line. While I have not come across any severe issues using the theme on a daily basis myself, I may continue to make small changes that could affect stability in the future. A broken web-greeter theme can prevent you from logging in graphically. In this case, you can switch to another tty and revert changes to the configurations from the command-line using an editor like `nano`. While I do not plan to push breaking changes, I do not make any guarantees over this project and would not want someone to break their system who would have a hard time restoring it.
