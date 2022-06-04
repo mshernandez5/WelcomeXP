@@ -156,6 +156,8 @@ body
     background-color: var(--primary-bg);
     font: var(--primary-font-size) var(--primary-font-family);
     color: var(--primary-font-color);
+    /* Emulate "sort-of-bold-but-not" rendering with a text shadow rendered at the same spot. */
+    text-shadow: 0px 0px var(--primary-font-color);
 }
 
 #main-content
@@ -201,7 +203,6 @@ body
 {
     display: block;
     margin: var(--logo-text-gap) calc(var(--logo-size) * 0.165) 0 0;
-    font-weight: bold;
 }
 
 #center
@@ -314,11 +315,6 @@ body
     margin: 3%;
 }
 
-#shutdown-group
-{
-    font-weight: bold;
-}
-
 #shutdown-group:hover
 {
     cursor: pointer;
@@ -380,6 +376,22 @@ body
     gap: var(--user-listing-horizontal-gap);
 }
 
+.user > *
+{
+	transition: 0.5s;
+	transition-property: opacity;
+}
+
+#centerRight:hover .user:not(.active) > *
+{
+	opacity: 50%;
+}
+
+#centerRight:hover .user:not(.active):hover > *
+{
+	opacity: 100%;
+}
+
 .user:hover
 {
     cursor: pointer;
@@ -394,11 +406,6 @@ body
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     background: linear-gradient(90deg, var(--user-listing-0), var(--user-listing-1));
-}
-
-.user-name
-{
-    font-weight: bold;
 }
 
 .password-box
@@ -477,6 +484,8 @@ body
     margin-left: var(--password-entry-offset);
     visibility: hidden;
     font-size: var(--message-font-size);
+    /* Disable "sort-of-bold" text shadow hack */
+    text-shadow: none;
 }
 
 .user.active .password-msg
@@ -496,6 +505,7 @@ body
     font-size: var(--message-font-size);
     color: black;
     background-color: var(--popup-background-color);
+    width: max-content;
 }
 
 .password-error-popup.active
@@ -572,7 +582,6 @@ body
 {
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 #shutdown-prompt
@@ -583,11 +592,11 @@ body
     border: 1px solid black;
     width: var(--shutdown-prompt-width);
     height: var(--shutdown-prompt-height);
+    margin-top: 26vh;
 }
 
 #shutdown-prompt-header
 {
-    font-weight: bold;
     width: 100%;
     height: var(--shutdown-header-height);
     background-color: var(--header-bg);
@@ -622,7 +631,6 @@ body
 
 #shutdown-prompt-options
 {
-    font-weight: bold;
     font-size: var(--shutdown-prompt-option-font-size);
     flex-grow: 1;
     display: flex;
@@ -706,4 +714,29 @@ body
     padding: 0px 8px 0px 8px;
     background: linear-gradient(180deg, var(--button-background-1),
         var(--button-background-2) 90%, var(--button-background-3) 95%);
+    /* Disable "sort-of-bold" text shadow hack */
+    text-shadow: none;
+}
+
+@keyframes grayFadeIn
+{
+	0%
+    {
+		filter: grayscale(0);
+	}
+	15%
+    {
+		filter: grayscale(0);
+	}
+	100%
+    {
+		filter: grayscale(0.90);
+	}
+}
+
+.grayscale
+{
+	animation: grayFadeIn 5s;
+	animation-fill-mode: forwards;
+	animation-timing-function: steps(16, end);
 }

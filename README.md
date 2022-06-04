@@ -28,25 +28,17 @@ Login:
 
 ![login](screenshot/login.png)
 
-Selected User:
-
-![user_selected](screenshot/user_selected.png)
-
-Incorrect Password:
-
-![incorrect_password](screenshot/incorrect_password.png)
-
 Welcome Screen:
 
 ![welcome](screenshot/welcome.png)
 
-Shutdown Options:
+WelcomeXP vs Original:
 
-![shutdown_options](screenshot/shutdown_options.png)
+![login_comparison](screenshot/login-comparison.png)
 
-Multiple Users:
+![password_error_comparison](screenshot/password-error-comparison.png)
 
-![multiple_users](screenshot/multiple_users.png)
+![shutdown_prompt_comparison](screenshot/shutdown-prompt-comparison.png)
 
 # Warnings
 If you have no experience installing or configuring greeters then I recommend you have extreme caution installing this theme; avoid it if you are not comfortable with the possibility of recovering your login screen from the command line. While I have not come across any severe issues using the theme on a daily basis myself, I may continue to make small changes that could affect stability in the future. A broken web-greeter theme can prevent you from logging in graphically. In this case, you can switch to another tty and revert changes to the configurations from the command-line using an editor like `nano`. While I do not plan to push breaking changes, I do not make any guarantees over this project and would not want someone to break their system who would have a hard time restoring it.
