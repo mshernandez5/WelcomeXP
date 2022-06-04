@@ -58,7 +58,7 @@ The following instructions are a quick (and possibly outdated by the time you re
 2) Install Node.js v16.x with help from [this page](https://github.com/nodesource/distributions).
 3) Clone the `nody-greeter` project into its own folder, ex. `git clone https://github.com/JezerM/nody-greeter.git`
 4) Set the current directory to the newly created folder, ex. `cd nody-greeter`
-5) It is generally safest to choose a version instead of using the latest code by running `git checkout 1.4.0`, for example. Check the repository for the latest version.
+5) It is generally safest to choose a version instead of using the latest code by running `git checkout 1.4.1`, for example. Check the repository for the latest version.
 6) Run `npm install` to fetch dependencies.
 7) Run `npm run rebuild`
 8) Run `npm run build`
