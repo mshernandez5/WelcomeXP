@@ -23,14 +23,14 @@ export class ShutdownPrompt
         // Instance Variable Initialization
         this.active = false;
     
-        // Create Nody Event Handler
-        window.addEventListener("NodyBroadcastEvent", (event) => this.nodyEventHandler(event));
+        // Create Greeter Event Handler
+        window.addEventListener("GreeterBroadcastEvent", (event) => this.greeterEventHandler(event));
     
         // Add Key Listeners For Shutdown Prompt
         document.addEventListener("keydown", (event) => this.onKeyEvent(event));
 
         // Skip Button Bindings If Secondary Monitor
-        if (window.nody_greeter && !window.nody_greeter.window_metadata.is_primary)
+        if (window.greeter_comm && !window.greeter_comm.window_metadata.is_primary)
         {
             return;
         }
@@ -61,10 +61,10 @@ export class ShutdownPrompt
      */
     broadcastShowShutdownPromptEvent()
     {
-        // If Nody Greeter, Send Event For Multi-Monitor Support; Else, Show Directly
-        if (window.nody_greeter)
+        // Send Event If Multi-Monitor Supported; Else, Show Directly
+        if (window.greeter_comm)
         {
-            nody_greeter.broadcast({type: ShutdownPrompt.SHUTDOWN_PROMPT_SHOW_EVENT_ID});
+            greeter_comm.broadcast({type: ShutdownPrompt.SHUTDOWN_PROMPT_SHOW_EVENT_ID});
         }
         else
         {
@@ -78,10 +78,10 @@ export class ShutdownPrompt
      */
     broadcastHideShutdownPromptEvent()
     {
-        // If Nody Greeter, Send Event For Multi-Monitor Support; Else, Show Directly
-        if (window.nody_greeter)
+        // Send Event If Multi-Monitor Supported; Else, Show Directly
+        if (window.greeter_comm)
         {
-            nody_greeter.broadcast({type: ShutdownPrompt.SHUTDOWN_PROMPT_HIDE_EVENT_ID});
+            greeter_comm.broadcast({type: ShutdownPrompt.SHUTDOWN_PROMPT_HIDE_EVENT_ID});
         }
         else
         {
@@ -95,7 +95,7 @@ export class ShutdownPrompt
     showShutdownPrompt()
     {
         // Only Primary Window Has Overlay Content To Show
-        if (!window.nody_greeter || window.nody_greeter.window_metadata.is_primary)
+        if (!window.greeter_comm || window.greeter_comm.window_metadata.is_primary)
         {
             let overlay = document.querySelector("#shutdown-prompt-overlay");
             overlay.classList.add("active");
@@ -110,7 +110,7 @@ export class ShutdownPrompt
     hideShutdownPrompt()
     {
         // Only Primary Window Has Overlay Content To Hide
-        if (!window.nody_greeter || window.nody_greeter.window_metadata.is_primary)
+        if (!window.greeter_comm || window.greeter_comm.window_metadata.is_primary)
         {
             let overlay = document.querySelector("#shutdown-prompt-overlay");
             overlay.classList.remove("active");
@@ -120,11 +120,11 @@ export class ShutdownPrompt
     }
 
     /**
-     * Responds to Nody Greeter events.
+     * Responds to greeter events.
      * 
-     * @param {NodyBroadcastEvent} event The nody broadcast event. 
+     * @param {GreeterBroadcastEvent} event The greeter broadcast event. 
      */
-    nodyEventHandler(event)
+    greeterEventHandler(event)
     {
         switch (event.data.type)
         {
@@ -135,7 +135,7 @@ export class ShutdownPrompt
                 this.hideShutdownPrompt();
                 break;
             default:
-                console.warn("Unknown Nody Broadcast Event Received: " + event);
+                console.warn("Unknown Greeter Broadcast Event Received: " + event);
         }
     }
 
