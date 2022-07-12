@@ -58,7 +58,7 @@ The following instructions are a quick (and possibly outdated by the time you re
 2) Install Node.js v16.x with help from [this page](https://github.com/nodesource/distributions).
 3) Clone the `nody-greeter` project into its own folder, ex. `git clone https://github.com/JezerM/nody-greeter.git`
 4) Set the current directory to the newly created folder, ex. `cd nody-greeter`
-5) Run `git checkout 1.4.1` to use nody-greeter version 1.4.1. Please note that WelcomeXP v0.4.0 is *not* compatible with nody-greeter 1.5.0+; an update will be released soon to address this.
+5) Run `git checkout 1.5.0` to use nody-greeter version 1.5.0. Please note that WelcomeXP v0.4.1+ requires *at least* nody-greeter version 1.5.0.
 6) Run `npm install` to fetch dependencies.
 7) Run `npm run rebuild`
 8) Run `npm run build`
@@ -69,7 +69,7 @@ The following instructions are a quick (and possibly outdated by the time you re
 2) Install `nody-greeter` and set `greeter-session=nody-greeter` in your lightdm configuration. You may choose to install [`web-greeter`](https://github.com/JezerM/web-greeter) instead assuming you modify these steps accordingly.
 3) If your distribution did not originally come with LightDM you must set a default user session corresponding to an option available in `/usr/share/xsessions`. For example, on Lubuntu I can select `/usr/share/xsessions/Lubuntu.session` as the default by adding `user-session=Lubuntu` to the lightdm configuration. Most distributions with LightDM as the default display manager (such as Linux Mint Cinnamon) should already have this preconfigured.
 4) Clone the `WelcomeXP` project into its own folder, ex. `git clone https://github.com/mshernandez5/WelcomeXP.git`\
-Just in case the very latest code is broken, you may also want to move back to the last release version by doing `git checkout v0.4.0` within the newly created WelcomeXP directory. If you see very recent commits they might not have been extensively tested yet.
+Just in case the very latest code is broken, you may also want to move back to the last release version by doing `git checkout v0.4.1` within the newly created WelcomeXP directory. If you see very recent commits they might not have been extensively tested yet.
 5) *OPTIONAL, BUT RECOMMENDED* Create a `fonts` directory in the `WelcomeXP` folder and place copies of `tahoma.ttf`, `tahomabd.ttf`, and `FRADMIT.TTF` into the new directory for a more authentic login screen. If you have a Windows installation, you can easily grab them from `C:\Windows\Fonts`
 6) Copy the `WelcomeXP` folder into the `themes` directory for the webkit greeter, ex. `sudo cp -R WelcomeXP /usr/share/web-greeter/themes`
 7) Ensure that the theme folder permissions allow the greeter to read the necessary files, ex. `sudo chmod -R 755 /usr/share/web-greeter/themes/WelcomeXP`
