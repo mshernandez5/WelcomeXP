@@ -113,6 +113,7 @@
     --password-entry-offset: 6px;
     --password-top-margin: calc(var(--profile-picture-size) * 0.5);
     --password-left-margin: calc(2 * var(--profile-picture-border-size) + var(--user-listing-horizontal-gap) + var(--profile-picture-size) - var(--password-entry-offset));
+    --password-entry-button-margin: 8px;
 
     /* Sizes - Popup */
     --popup-border-radius: 8px;
@@ -551,6 +552,8 @@ body
 .img-button
 {
     vertical-align: middle;
+    box-shadow: 2px 2px 0 var(--shadow-color);
+    margin-left: var(--password-entry-button-margin);
 }
 
 .img-button:hover
