@@ -363,6 +363,8 @@ body
 .profile-picture
 {
     width: var(--profile-picture-size);
+    height: var(--profile-picture-size);
+    object-fit: cover;
 }
 
 .user
