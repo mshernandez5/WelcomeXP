@@ -1,9 +1,7 @@
 # WelcomeXP
 A nody-greeter theme to mimic the Windows XP login screen.
 
-There is a [*really great Windows XP theme for Cinnamon*](https://github.com/ndwarshuis/CinnXP) which I've been using practically since it existed (thanks, [@ndwarshuis](https://github.com/ndwarshuis)).
-
-I found that there seems to be no recent attempts to make a greeter to match it, which is where this project began.
+There is a [really great Windows XP theme for Cinnamon](https://github.com/ndwarshuis/CinnXP) which I've used for a long time now. It was really well done but I could never find any greeter theme to match it, which is where this project began.
 
 # Screenshots
 You can get a good idea of how the screen will look simply by cloning the project and viewing `index.html` in a standard browser. Things aren't perfect yet, but they come decently close to the real thing.
@@ -79,3 +77,15 @@ Just in case the very latest code is broken, you may also want to move back to t
 
 Example of a successful run of `nody-greeter --debug`:
 ![nody_greeter_debug](screenshot/nody_greeter_debug.png)
+
+# Completing The Environment
+
+Here are some nice themes to pair with the greeter!
+
+Components | Theme
+-----------------|---------
+Cinnamon + GTK + Cursors | https://github.com/ndwarshuis/CinnXP
+XFCE + GTK + Cursors + Sounds | https://github.com/rozniak/xfce-winxp-tc
+Icons | https://github.com/B00merang-Artwork/Windows-XP
+Plymouth | https://github.com/Liftu/WindozeXP-1080-Plymouth-theme
+Firefox | https://github.com/Aris-t2/CustomCSSforFx

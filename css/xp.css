@@ -133,6 +133,10 @@
     --shutdown-prompt-option-font-size: 12px;
     --shutdown-option-button-size: 32px;
 
+    /* Sizes - Footer Content */
+    --footer-content-margin-side: 24px;
+    --footer-content-margin-top: 20px;
+
     /* Primary Font */
     --primary-font-family:'Tahoma', Tahoma, sans-serif;
     --primary-font-size: 18px;
@@ -308,12 +312,12 @@ body
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: start;
 }
 
 #footer > *
 {
-    margin: 3%;
+    margin: var(--footer-content-margin-top) var(--footer-content-margin-side) 0 var(--footer-content-margin-side);
 }
 
 #shutdown-group:hover
