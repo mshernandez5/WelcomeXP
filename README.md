@@ -53,10 +53,10 @@ Please check out the [`nody-greeter`](https://github.com/JezerM/nody-greeter) re
 The following instructions are a quick (and possibly outdated by the time you read this) summary of the installation procedure for Ubuntu-based distributions:
 
 1) Make sure you have any necessary dependencies. Obviously you'll need `lightdm` (which is default on some distributions such as Linux Mint). You will also need `python3`, which is included by default with many (but not all) distributions. You can aquire the other required packages via `sudo apt install build-essential libgirepository1.0-dev liblightdm-gobject-1-0 liblightdm-gobject-1-dev libcairo2-dev`
-2) Install Node.js v16.x with help from [this page](https://github.com/nodesource/distributions).
+2) Install Node.js v18.x with help from [this page](https://github.com/nodesource/distributions).
 3) Clone the `nody-greeter` project into its own folder with required submodules, ex. `git clone --recursive https://github.com/JezerM/nody-greeter.git`
 4) Set the current directory to the newly created folder, ex. `cd nody-greeter`
-5) Run `git checkout 1.5.1` to use nody-greeter version 1.5.1. Please note that WelcomeXP v0.4.1+ requires *at least* nody-greeter version 1.5.0.
+5) Run `git checkout 1.5.2` to use nody-greeter version 1.5.2. Please note that WelcomeXP v0.4.1+ requires *at least* nody-greeter version 1.5.0.
 6) Run `npm install` to fetch dependencies.
 7) Run `npm run rebuild`
 8) Run `npm run build`
