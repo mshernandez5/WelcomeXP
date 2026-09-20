@@ -100,6 +100,7 @@ export class Login
      */
     authentication_complete()
     {
+        if (!this.activeUserListing) return;
         // Clear Password Field On Login Attempt
         this.activeUserListing.querySelector(".password").value = "";
         this.pendingAuthentication = false;
