@@ -81,6 +81,7 @@ export class Login
         // Messages Only Useful For Debugging, Disabled For Appearance
         // let header = document.querySelector("#header");
         // header.textContent = type + ": " + text;
+        this.resetHint();
     }
 
     /**
@@ -91,8 +92,38 @@ export class Login
      */
     show_message(text, type)
     {
-        let header = document.querySelector("#header");
-        header.textContent = type + ": " + text;
+        // Finishing what was intended with commenting out show_prompt()
+        this.setHint(text);
+    }
+
+    /**
+     * Replaces the hint under the active user's name ("Type your password").
+     *
+     * @param {String} text The new hint text.
+     */
+    setHint(text)
+    {
+        if (!this.activeUserListing) return;
+        let hint = this.activeUserListing.querySelector(".password-msg");
+        // Remember the original hint the first time it is replaced
+        if (hint.dataset.defaultText === undefined)
+        {
+            hint.dataset.defaultText = hint.textContent;
+        }
+        hint.textContent.text;
+    }
+
+    /**
+     * Restores the default hint under the active user's name.
+     */
+    resetHint()
+    {
+        if (!this.activeUserListing) return;
+        let hint = this.activeUserListing.querySelector(".password-msg");
+        if (hint.dataset.defaultText !== undefined)
+        {
+            hint.textContent = hint.dataset.defaultText;
+        }
     }
 
     /**
@@ -101,6 +132,7 @@ export class Login
     authentication_complete()
     {
         if (!this.activeUserListing) return;
+        this.resetHint();
         // Clear Password Field On Login Attempt
         this.activeUserListing.querySelector(".password").value = "";
         this.pendingAuthentication = false;
@@ -186,6 +218,7 @@ export class Login
             this.activeUserListing.classList.remove("active");
             // Clear Previously Selected Password Box
             this.activeUserListing.querySelector(".password").value = "";
+            this.resetHint();
             lightdm.cancel_authentication();
         }
         // Update Status To Reflect Selected User

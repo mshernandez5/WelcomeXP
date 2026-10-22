@@ -95,22 +95,22 @@
     --stripe-height: 2px;
     --center-divider-width: 1px;
     --center-divider-height: 100%;
-    --logo-size: 136px;
-    --logo-text-gap: 16px;
-    --image-button-size: 24px;
+    --logo-size: 170px;
+    --logo-text-gap: 20px;
+    --image-button-size: 30px;
 
     /* Sizes - User Listing */
-    --user-listing-width: 368px;
-    --user-listing-horizontal-gap: 12px;
-    --user-listing-padding: 8px;
-    --profile-picture-size: 48px;
+    --user-listing-width: 460px;
+    --user-listing-horizontal-gap: 15px;
+    --user-listing-padding: 10px;
+    --profile-picture-size: 60px;
     --profile-picture-border-radius: 6px;
     --profile-picture-border-size: 2px;
 
     /* Sizes - Password Entry Group */
-    --password-entry-length: 164px;
-    --password-entry-height: 24px;
-    --password-entry-offset: 6px;
+    --password-entry-length: 205px;
+    --password-entry-height: 30px;
+    --password-entry-offset: 8px;
     --password-top-margin: calc(var(--profile-picture-size) * 0.5);
     --password-left-margin: calc(2 * var(--profile-picture-border-size) + var(--user-listing-horizontal-gap) + var(--profile-picture-size) - var(--password-entry-offset));
     --password-entry-button-margin: 8px;
@@ -127,23 +127,23 @@
     --error-popup-left-margin: calc(var(--password-left-margin) + var(--password-entry-length) / 2);
 
     /* Sizes - Shutdown Prompt */
-    --shutdown-prompt-width: 320px;
-    --shutdown-prompt-height: 200px;
+    --shutdown-prompt-width: 400px;
+    --shutdown-prompt-height: 250px;
     --shutdown-header-height: 20%;
-    --shutdown-prompt-option-font-size: 12px;
-    --shutdown-option-button-size: 32px;
+    --shutdown-prompt-option-font-size: 15px;
+    --shutdown-option-button-size: 40px;
 
     /* Sizes - Footer Content */
-    --footer-content-margin-side: 24px;
-    --footer-content-margin-top: 20px;
+    --footer-content-margin-side: 30px;
+    --footer-content-margin-top: 25px;
 
     /* Primary Font */
     --primary-font-family:'Tahoma', Tahoma, sans-serif;
-    --primary-font-size: 18px;
+    --primary-font-size: 22px;
     --primary-font-color: white;
 
     /* Message Font (Corner) */
-    --message-font-size: 12px;
+    --message-font-size: 15px;
 }
 
 body
@@ -492,6 +492,10 @@ body
     margin-left: var(--password-entry-offset);
     visibility: hidden;
     font-size: var(--message-font-size);
+    max-width: calc(var(--user-listing-width) - var(--password-left-margin) - 2 * var(--user-listing-padding) - var(--password-entry-offset));
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     /* Disable "sort-of-bold" text shadow hack */
     text-shadow: none;
 }
